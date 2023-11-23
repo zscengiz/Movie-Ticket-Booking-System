@@ -45,7 +45,7 @@ Follow the steps below to set up the project on your local development environme
 
 ## Issues and Bugs
 
-If you encounter issues or find bugs in the project, please report them using the [GitHub issue tracker](https://github.com/kullaniciadi/movie-ticket-booking-system/issues).
+If you encounter issues or find bugs in the project, please report them using the [GitHub issue tracker](https://github.com/zscengiz/movie-ticket-booking-system/issues).
 
 ## License
 
