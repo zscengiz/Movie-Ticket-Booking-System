@@ -16,8 +16,14 @@ public class ConnectionDB {
         
     public static Connection getConnection() throws ClassNotFoundException, SQLException{
         
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        return DriverManager.getConnection("jdbc:mysql://localhost:3306/mtbs", "root", "tomcat1234"); //TODO
+         try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            return DriverManager.getConnection("jdbc:mysql://localhost:3306/mtbs", "root", "tomcat1234");
+        } catch (ClassNotFoundException | SQLException e) {
+            throw e;
+        }
+
+        
     
     }
 

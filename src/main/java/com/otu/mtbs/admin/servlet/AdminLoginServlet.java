@@ -7,15 +7,16 @@ package com.otu.mtbs.admin.servlet;
 import com.otu.mtbs.connection.ConnectionDB;
 import com.otu.mtbs.model.User;
 import com.otu.mtbs.user.dao.AdminDao;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 /**
  *
@@ -26,6 +27,8 @@ public class AdminLoginServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        
+
         try (PrintWriter out = response.getWriter()) {
             
             String email = request.getParameter("email");
@@ -36,10 +39,14 @@ public class AdminLoginServlet extends HttpServlet {
             User admin = dao.logAdmin(email, password);
             
             if(admin != null){
+                HttpSession session = request.getSession();
+                session.setAttribute("loggedAdmin", admin);
                 response.sendRedirect("dashboard.jsp");
 
             }else{
                 //TODO
+           
+
             }
            
             

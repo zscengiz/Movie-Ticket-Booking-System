@@ -29,7 +29,8 @@ public class AdminDao {
        
        try{
            
-          query = "SELECT * FROM USERS WHERE ROLE='1' AND EMAIL=? AND PASSWORD=?;";
+          query = "SELECT * FROM USER WHERE ROLE='1' AND EMAIL=? AND PASSWORD=?;";
+          pst = con.prepareStatement(query);
           pst.setString(1, email);
           pst.setString(2, password);
           rs = pst.executeQuery();
