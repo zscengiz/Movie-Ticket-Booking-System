@@ -38,10 +38,7 @@ public class AdminDao {
           if(rs.next()){           
               admin = new User();
               admin.setId(rs.getInt("id"));
-              admin.setUsername(rs.getString("username"));
-              admin.setBirthday(rs.getString("birthday"));
               admin.setEmail(rs.getString("email"));
-              admin.setGender(rs.getString("gender"));
               admin.setName(rs.getString("name"));
               admin.setRole(rs.getInt("role"));
               admin.setPassword(rs.getString("password"));
@@ -54,10 +51,5 @@ public class AdminDao {
        return admin;
        
    }
-   
-    
-    
-    
-    
     
 }

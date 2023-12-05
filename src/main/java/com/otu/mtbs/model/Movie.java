@@ -10,7 +10,7 @@ package com.otu.mtbs.model;
  */
 public class Movie {
     
-    private String id;
+    private Integer id;
     private String name;
     private String director;
     private String releaseDate;
@@ -23,7 +23,7 @@ public class Movie {
         
     }
      
-    public Movie(String id, String name, String director, String releaseDate, String casts, String description, String poster, String duration) {
+    public Movie(Integer id, String name, String director, String releaseDate, String casts, String description, String poster, String duration) {
         this.id = id;
         this.name = name;
         this.director = director;
@@ -34,11 +34,11 @@ public class Movie {
         this.duration = duration;
     }
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

@@ -11,25 +11,19 @@ package com.otu.mtbs.model;
 public class User {
     
     private Integer id;
-    private String username;
     private String email;
     private String name;
     private String password;
-    private String birthday;
-    private String gender;
     private Integer role;
 
     public User() {
     }
 
-    public User(Integer id, String username, String email, String name, String password, String birthday, String gender, Integer role) {
+    public User(Integer id,String email, String name, String password, Integer role) {
         this.id = id;
-        this.username = username;
         this.email = email;
         this.name = name;
         this.password = password;
-        this.birthday = birthday;
-        this.gender = gender;
         this.role = role;
     }
 
@@ -39,14 +33,6 @@ public class User {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
     }
 
     public String getEmail() {
@@ -73,22 +59,6 @@ public class User {
         this.password = password;
     }
 
-    public String getBirthday() {
-        return birthday;
-    }
-
-    public void setBirthday(String birthday) {
-        this.birthday = birthday;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
     public Integer getRole() {
         return role;
     }
@@ -96,9 +66,7 @@ public class User {
     public void setRole(Integer role) {
         this.role = role;
     }
-    
-    
-    
+       
     
 }
 
