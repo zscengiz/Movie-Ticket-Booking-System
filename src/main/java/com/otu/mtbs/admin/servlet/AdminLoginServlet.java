@@ -41,11 +41,11 @@ public class AdminLoginServlet extends HttpServlet {
             if(admin != null){
                 HttpSession session = request.getSession();
                 session.setAttribute("loggedAdmin", admin);
-                response.sendRedirect("dashboard.jsp");
+                response.sendRedirect("Admin/dashboard.jsp");
 
             }else{
                 request.setAttribute("loginError", "Invalid username or password. Please try again.");
-                request.getRequestDispatcher("login.jsp").forward(request, response);
+                request.getRequestDispatcher("Admin/login.jsp").forward(request, response);
             }
             
         } catch (ClassNotFoundException ex) {
