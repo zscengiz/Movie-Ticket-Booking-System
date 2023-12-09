@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.otu.mtbs.user.dao;
+package com.otu.mtbs.admin.dao;
 
 import com.otu.mtbs.model.User;
 import java.sql.*;
