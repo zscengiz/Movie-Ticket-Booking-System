@@ -10,22 +10,22 @@ package com.otu.mtbs.model;
  */
 public class Roles {
     
-    private String id;
+    private Integer id;
     private String role;
 
     public Roles() {
     }
 
-    public Roles(String id, String role) {
+    public Roles(Integer id, String role) {
         this.id = id;
         this.role = role;
     }
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

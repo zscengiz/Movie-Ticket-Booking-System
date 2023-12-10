@@ -6,7 +6,7 @@ package com.otu.mtbs.admin.servlet;
 
 import com.otu.mtbs.connection.ConnectionDB;
 import com.otu.mtbs.model.User;
-import com.otu.mtbs.user.dao.AdminDao;
+import com.otu.mtbs.admin.dao.AdminDao;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -27,27 +27,26 @@ public class AdminLoginServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
 
         try (PrintWriter out = response.getWriter()) {
-            
+
             String email = request.getParameter("email");
             String password = request.getParameter("password");
-            
+
             AdminDao dao = new AdminDao(ConnectionDB.getConnection());
-            
+
             User admin = dao.logAdmin(email, password);
-            
-            if(admin != null){
+
+            if (admin != null) {
                 HttpSession session = request.getSession();
                 session.setAttribute("loggedAdmin", admin);
                 response.sendRedirect("Admin/dashboard.jsp");
 
-            }else{
-                request.setAttribute("loginError", "Invalid username or password. Please try again.");
-                request.getRequestDispatcher("Admin/login.jsp").forward(request, response);
+            } else {
+                response.sendRedirect("Admin/login.jsp");
+
             }
-            
+
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(AdminLoginServlet.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {

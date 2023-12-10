@@ -10,40 +10,40 @@ package com.otu.mtbs.model;
  */
 public class Session {
     
-    private String id;
-    private String movieId;
-    private String saloonId;
+    private Integer id;
+    private Integer movieId;
+    private Integer saloonId;
 
     public Session() {
     }
 
-    public Session(String id, String movieId, String saloonId) {
+    public Session(Integer id, Integer movieId, Integer saloonId) {
         this.id = id;
         this.movieId = movieId;
         this.saloonId = saloonId;
     }
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public String getMovieId() {
+    public Integer getMovieId() {
         return movieId;
     }
 
-    public void setMovieId(String movieId) {
+    public void setMovieId(Integer movieId) {
         this.movieId = movieId;
     }
 
-    public String getSaloonId() {
+    public Integer getSaloonId() {
         return saloonId;
     }
 
-    public void setSaloonId(String saloonId) {
+    public void setSaloonId(Integer saloonId) {
         this.saloonId = saloonId;
     }
 

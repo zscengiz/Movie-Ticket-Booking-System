@@ -9,26 +9,24 @@ package com.otu.mtbs.model;
  * @author zcengiz
  */
 public class Saloon {    
-    private String id;
+    private Integer id;
     private String name;
-    private String location;
     private String capacity;
 
     public Saloon() {
     }
 
-    public Saloon(String id, String name, String location, String capacity) {
+    public Saloon(Integer id, String name, String capacity) {
         this.id = id;
         this.name = name;
-        this.location = location;
         this.capacity = capacity;
     }
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -38,14 +36,6 @@ public class Saloon {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getLocation() {
-        return location;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
     }
 
     public String getCapacity() {

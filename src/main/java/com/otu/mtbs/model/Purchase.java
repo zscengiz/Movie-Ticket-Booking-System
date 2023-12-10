@@ -10,7 +10,7 @@ package com.otu.mtbs.model;
  */
 public class Purchase {
     
-    private String id;
+    private Integer id;
     private String movieName;
     private String quantity;
     private String unitPrice;
@@ -21,7 +21,7 @@ public class Purchase {
     public Purchase() {
     }
 
-    public Purchase(String id, String movieName, String quantity, String unitPrice, String totalPrice, String purchaseDate, String seatNumber) {
+    public Purchase(Integer id, String movieName, String quantity, String unitPrice, String totalPrice, String purchaseDate, String seatNumber) {
         this.id = id;
         this.movieName = movieName;
         this.quantity = quantity;
@@ -31,11 +31,11 @@ public class Purchase {
         this.seatNumber = seatNumber;
     }
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
