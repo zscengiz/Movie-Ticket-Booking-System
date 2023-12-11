@@ -4,15 +4,12 @@
  */
 package com.otu.mtbs.model;
 
-/**
- *
- * @author zcengiz
- */
 public class Session {
     
     private Integer id;
     private Integer movieId;
     private Integer saloonId;
+    private String movieName;
 
     public Session() {
     }
@@ -46,9 +43,15 @@ public class Session {
     public void setSaloonId(Integer saloonId) {
         this.saloonId = saloonId;
     }
+    
+    public void setMovieName(String movieName) {
+        this.movieName = movieName;
+    }
+    
+    public String getMovieName() {
+        return movieName;
+    }
 
-    
-    
     
     
 }

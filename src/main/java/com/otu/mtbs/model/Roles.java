@@ -4,10 +4,6 @@
  */
 package com.otu.mtbs.model;
 
-/**
- *
- * @author zcengiz
- */
 public class Roles {
     
     private Integer id;

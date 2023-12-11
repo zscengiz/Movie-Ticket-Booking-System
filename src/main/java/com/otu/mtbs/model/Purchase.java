@@ -9,25 +9,24 @@ package com.otu.mtbs.model;
  * @author zcengiz
  */
 public class Purchase {
-    
+
     private Integer id;
+    private Integer userId;
+    private Integer sessionId;
     private String movieName;
-    private String quantity;
-    private String unitPrice;
-    private String totalPrice;
-    private String purchaseDate;
-    private String seatNumber;
+    private Integer quantity;
+    private Integer seatNumber;
 
     public Purchase() {
+
     }
 
-    public Purchase(Integer id, String movieName, String quantity, String unitPrice, String totalPrice, String purchaseDate, String seatNumber) {
+    public Purchase(Integer id, Integer userId, Integer sessionId, String movieName, Integer quantity, Integer seatNumber) {
         this.id = id;
+        this.userId = userId;
+        this.sessionId = sessionId;
         this.movieName = movieName;
         this.quantity = quantity;
-        this.unitPrice = unitPrice;
-        this.totalPrice = totalPrice;
-        this.purchaseDate = purchaseDate;
         this.seatNumber = seatNumber;
     }
 
@@ -39,6 +38,22 @@ public class Purchase {
         this.id = id;
     }
 
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
+
+    public Integer getSessionId() {
+        return sessionId;
+    }
+
+    public void setSessionId(Integer sessionId) {
+        this.sessionId = sessionId;
+    }
+
     public String getMovieName() {
         return movieName;
     }
@@ -47,44 +62,20 @@ public class Purchase {
         this.movieName = movieName;
     }
 
-    public String getQuantity() {
+    public Integer getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(String quantity) {
+    public void setQuantity(Integer quantity) {
         this.quantity = quantity;
     }
 
-    public String getUnitPrice() {
-        return unitPrice;
-    }
-
-    public void setUnitPrice(String unitPrice) {
-        this.unitPrice = unitPrice;
-    }
-
-    public String getTotalPrice() {
-        return totalPrice;
-    }
-
-    public void setTotalPrice(String totalPrice) {
-        this.totalPrice = totalPrice;
-    }
-
-    public String getPurchaseDate() {
-        return purchaseDate;
-    }
-
-    public void setPurchaseDate(String purchaseDate) {
-        this.purchaseDate = purchaseDate;
-    }
-
-    public String getSeatNumber() {
+    public Integer getSeatNumber() {
         return seatNumber;
     }
 
-    public void setSeatNumber(String seatNumber) {
+    public void setSeatNumber(Integer seatNumber) {
         this.seatNumber = seatNumber;
     }
-    
+
 }

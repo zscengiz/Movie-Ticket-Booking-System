@@ -7,6 +7,7 @@ package com.otu.mtbs.admin.servlet;
 import com.otu.mtbs.connection.ConnectionDB;
 import com.otu.mtbs.model.User;
 import com.otu.mtbs.admin.dao.AdminDao;
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -43,7 +44,10 @@ public class AdminLoginServlet extends HttpServlet {
                 response.sendRedirect("Admin/dashboard.jsp");
 
             } else {
-                response.sendRedirect("Admin/login.jsp");
+                request.setAttribute("loginError", "Invalid email or password. Please try again.");
+                
+                RequestDispatcher rd = request.getRequestDispatcher("Admin/login.jsp");
+                rd.forward(request, response);
 
             }
 
@@ -69,6 +73,6 @@ public class AdminLoginServlet extends HttpServlet {
     @Override
     public String getServletInfo() {
         return "Short description";
-    }// </editor-fold>
+    }
 
 }

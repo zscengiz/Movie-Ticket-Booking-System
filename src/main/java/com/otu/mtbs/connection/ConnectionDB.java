@@ -6,14 +6,8 @@ package com.otu.mtbs.connection;
 
 import java.sql.*;
 
-
-/**
- *
- * @author zcengiz
- */
 public class ConnectionDB {
     
-        
     public static Connection getConnection() throws ClassNotFoundException, SQLException{
         
          try {
@@ -21,11 +15,6 @@ public class ConnectionDB {
             return DriverManager.getConnection("jdbc:mysql://localhost:3306/mtbs", "root", "tomcat1234");
         } catch (ClassNotFoundException | SQLException e) {
             throw e;
-        }
-
-        
-    
+        } 
     }
-
-    
 }

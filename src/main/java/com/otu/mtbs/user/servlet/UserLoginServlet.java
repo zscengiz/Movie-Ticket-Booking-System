@@ -36,10 +36,9 @@ public class UserLoginServlet extends HttpServlet {
                 response.sendRedirect("Navbar/navbar.jsp");
 
             } else {
-                // Hata mesajını request üzerinden iletiyoruz
+                
                 request.setAttribute("loginError", "Invalid email or password. Please try again.");
-
-                // Hata durumunda login sayfasına geri yönlendirme
+                
                 RequestDispatcher rd = request.getRequestDispatcher("User/login.jsp");
                 rd.forward(request, response);
             }

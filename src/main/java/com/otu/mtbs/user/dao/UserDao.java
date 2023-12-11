@@ -7,10 +7,6 @@ package com.otu.mtbs.user.dao;
 import com.otu.mtbs.model.User;
 import java.sql.*;
 
-/**
- *
- * @author zcengiz
- */
 public class UserDao {
 
     private final Connection con;
