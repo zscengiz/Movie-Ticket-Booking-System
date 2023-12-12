@@ -32,7 +32,7 @@ public class SessionDao {
                 isSuccess = rowsAffected == 1;
             } else {
                 // Aynı MovieID ve SaloonID var ise hata sonra düzenle burayı
-                System.err.println("A session with the same MovieID and SaloonID already exists.");
+                System.err.println("Session with the same MovieID and SaloonID already exists.");
             }
 
         } catch (SQLException ex) {

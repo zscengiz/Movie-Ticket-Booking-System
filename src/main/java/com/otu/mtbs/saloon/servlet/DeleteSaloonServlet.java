@@ -18,11 +18,11 @@ public class DeleteSaloonServlet extends HttpServlet {
         boolean isSuccess = SaloonDao.deleteSaloonById(saloonId);
 
         if (isSuccess) {
-            
+
             response.sendRedirect("Admin/saloonList.jsp?deleteSuccess=true");
-            
+
         } else {
-            
+
             response.sendRedirect("Admin/saloonList.jsp?deleteError=true");
         }
     }

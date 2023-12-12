@@ -5,6 +5,7 @@
 package com.otu.mtbs.user.dao;
 
 import com.otu.mtbs.model.User;
+import jakarta.servlet.http.HttpSession;
 import java.sql.*;
 
 public class UserDao {
@@ -59,20 +60,20 @@ public class UserDao {
                 pst.setString(1, email);
                 pst.setString(2, password);
                 pst.setString(3, name);
-                
+
                 int isAdded = pst.executeUpdate();
 
-                if(isAdded == 1) {
+                if (isAdded == 1) {
                     return true;
-                }else{
-                   return false; 
+                } else {
+                    return false;
                 }
 
             } catch (SQLException ex) {
                 ex.printStackTrace();
             }
 
-        }else{
+        } else {
             return false;
         }
         return false;
@@ -106,6 +107,12 @@ public class UserDao {
 
         return true;
 
+    }
+
+    public void logout(HttpSession session) {
+        if (session != null) {
+            session.invalidate();
+        }
     }
 
 }

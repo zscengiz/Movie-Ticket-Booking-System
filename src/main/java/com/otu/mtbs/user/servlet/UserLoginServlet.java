@@ -36,9 +36,9 @@ public class UserLoginServlet extends HttpServlet {
                 response.sendRedirect("Navbar/navbar.jsp");
 
             } else {
-                
+
                 request.setAttribute("loginError", "Invalid email or password. Please try again.");
-                
+
                 RequestDispatcher rd = request.getRequestDispatcher("User/login.jsp");
                 rd.forward(request, response);
             }
@@ -47,6 +47,7 @@ public class UserLoginServlet extends HttpServlet {
             Logger.getLogger(UserLoginServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)

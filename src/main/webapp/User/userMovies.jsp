@@ -73,7 +73,7 @@
                     <%
                         } else {
                     %>
-                        <a href="login.jsp">View Details (Login Required)</a>
+                        <a href="login.jsp">View Details</a>
                     <%
                         }
                     %>

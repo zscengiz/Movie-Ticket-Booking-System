@@ -69,7 +69,9 @@ public class SaloonDao {
 
         } catch (SQLException ex) {
             ex.printStackTrace();
-        }
+        }/*finally {
+        closeResources(con, stmt, rs); // kullanılarak kaynaklar kapatılabilir ama try kullandığımız için gerek yok
+    }      */
 
         return saloons;
     }

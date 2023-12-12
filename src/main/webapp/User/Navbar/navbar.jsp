@@ -23,11 +23,18 @@
                         <a href="../Admin/login.jsp">Admin Login</a>
                         <a href="../User/login.jsp">User Login</a>
                     </div>
-                </div>            
+                </div>   
+                <div class="dropdown">
+                    <a href="#" class="login">Profile</a>
+                    <div class="dropdown-content">
+                        <a href="#profile" class="login">Profil</a>
+                        <a href="/Movie-Ticket-Booking-System/User/logout.jsp" class="login">Logout</a>
+                    </div>
+                </div>     
                 <a href="#contact">Contact</a>
             </nav>
         </header>
-    
+
         <script src="navbar.js"></script>
     </body>
 </html>
