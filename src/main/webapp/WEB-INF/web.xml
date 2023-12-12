@@ -8,6 +8,46 @@
         <servlet-name>RegisterServlet</servlet-name>
         <servlet-class>com.otu.mtbs.user.servlet.RegisterServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UserLoginServlet</servlet-name>
+        <servlet-class>com.otu.mtbs.user.servlet.UserLoginServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CreateMovieServlet</servlet-name>
+        <servlet-class>com.otu.mtbs.movie.servlet.CreateMovieServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CreateSessionServlet</servlet-name>
+        <servlet-class>com.otu.mtbs.session.servlet.CreateSessionServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CreateSaloonServlet</servlet-name>
+        <servlet-class>com.otu.mtbs.saloon.servlet.CreateSaloonServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteMovieServlet</servlet-name>
+        <servlet-class>com.otu.mtbs.movie.servlet.DeleteMovieServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteSaloonServlet</servlet-name>
+        <servlet-class>com.otu.mtbs.saloon.servlet.DeleteSaloonServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteSessionServlet</servlet-name>
+        <servlet-class>com.otu.mtbs.session.servlet.DeleteSessionServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>dao</servlet-name>
+        <servlet-class>com.otu.mtbs.purchase.dao</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PurchaseServlet</servlet-name>
+        <servlet-class>com.otu.mtbs.purchase.servlet.PurchaseServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CreatePurchaseServlet</servlet-name>
+        <servlet-class>com.otu.mtbs.purchase.servlet.CreatePurchaseServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AdminLoginServlet</servlet-name>
         <url-pattern>/AdminLoginServlet</url-pattern>
@@ -15,6 +55,46 @@
     <servlet-mapping>
         <servlet-name>RegisterServlet</servlet-name>
         <url-pattern>/RegisterServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UserLoginServlet</servlet-name>
+        <url-pattern>/UserLoginServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CreateMovieServlet</servlet-name>
+        <url-pattern>/CreateMovieServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CreateSessionServlet</servlet-name>
+        <url-pattern>/CreateSessionServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CreateSaloonServlet</servlet-name>
+        <url-pattern>/CreateSaloonServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteMovieServlet</servlet-name>
+        <url-pattern>/DeleteMovieServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteSaloonServlet</servlet-name>
+        <url-pattern>/DeleteSaloonServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteSessionServlet</servlet-name>
+        <url-pattern>/DeleteSessionServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>dao</servlet-name>
+        <url-pattern>/dao</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PurchaseServlet</servlet-name>
+        <url-pattern>/PurchaseServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CreatePurchaseServlet</servlet-name>
+        <url-pattern>/CreatePurchaseServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
