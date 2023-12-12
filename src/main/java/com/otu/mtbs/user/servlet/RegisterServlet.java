@@ -8,6 +8,7 @@ import com.otu.mtbs.admin.servlet.AdminLoginServlet;
 import com.otu.mtbs.connection.ConnectionDB;
 import com.otu.mtbs.model.User;
 import com.otu.mtbs.user.dao.UserDao;
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -39,6 +40,10 @@ public class RegisterServlet extends HttpServlet {
                 response.sendRedirect("Admin/dashboard.jsp");
 
             } else {
+                request.setAttribute("loginError", "Invalid email. Please try again.");
+
+                RequestDispatcher rd = request.getRequestDispatcher("User/register.jsp");
+                rd.forward(request, response);
 
             }
         } catch (ClassNotFoundException ex) {
@@ -54,11 +59,13 @@ public class RegisterServlet extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
     }
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
+
     @Override
     public String getServletInfo() {
         return "Short description";

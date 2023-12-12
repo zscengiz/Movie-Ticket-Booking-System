@@ -38,13 +38,11 @@
                             <input type="password" id="password" name="password" placeholder="Password" required>
 
                         </div>
-                        <%
-                            if (request.getParameter("error") != null && request.getParameter("error").equals("true")) {
-                        %>
-                        <p style="color: red;">Invalid username or password. Please try again.</p>
-                        <%
-                            }
-                        %>
+                        <% String errorMessage = (String)request.getAttribute("loginError"); %>
+                        <% if (errorMessage != null) { %>
+                        <p style="color: red; margin-top: 10px;"><%= errorMessage %></p>
+                        <% } %>
+
                         <button type="submit">Register</button>
                         <div class="sign-link">
                             <p>Already have an account? <a href="login.jsp">Login</a></p>
