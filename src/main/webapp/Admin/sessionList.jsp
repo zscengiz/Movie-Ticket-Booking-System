@@ -7,7 +7,6 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style>
-
             table {
                 border-collapse: collapse;
                 width: 100%;
@@ -33,7 +32,6 @@
         <%@include file="../Admin/Header/header.jsp" %>
         <div class="table-container">
             <h2>Sessions List</h2>
-
             <% if (request.getParameter("deleteSuccess") != null) { %>
             <p style="color: green;">Session deleted successfully!</p>
             <% } else if (request.getParameter("deleteError") != null) { %>

@@ -4,7 +4,12 @@
     padding: 0;
     box-sizing: border-box;
     scroll-behavior: smooth;
+    
     font-family: 'Poppins', sans-serif;
+}
+body{
+        background: #323946;
+
 }
 header {
     position: fixed;

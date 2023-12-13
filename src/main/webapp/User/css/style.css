@@ -6,6 +6,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
+
 }
 
 body
@@ -14,7 +15,7 @@ body
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background:url('../image/login.jpeg');
+    background: #323946;
 }
 
 .wrapper

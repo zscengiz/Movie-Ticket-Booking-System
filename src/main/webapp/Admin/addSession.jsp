@@ -1,4 +1,3 @@
-
 <%@ page import="java.util.List" %>
 <%@ page import="com.otu.mtbs.model.Movie" %>
 <%@ page import="com.otu.mtbs.movie.dao.MovieDao" %>
@@ -17,7 +16,7 @@
                 font-family: Arial, sans-serif;
                 margin: 0;
                 padding: 0;
-                background-color: #f4f4f4;
+                background: #323946;
             }
 
             .container {
