@@ -10,7 +10,7 @@
                 font-family: Arial, sans-serif;
                 margin: 0;
                 padding: 0;
-                background-color: #f4f4f4;
+                background: #323946;
             }
 
             main {
@@ -29,7 +29,7 @@
             #movieList {
                 list-style-type: none;
                 padding: 0;
-                width: 60%;
+                width: 95%;
                 margin: 0 auto;
             }
 
@@ -40,17 +40,21 @@
                 border-radius: 8px;
                 box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
                 background-color: #fff;
-                text-align: center;
+                display: flex; /* Set display to flex for flexbox layout */
+            }
+
+            .movie img {
+                max-width: 100%;
+                max-height: 200px;
+                margin-right: 20px; /* Add margin for spacing between image and details */
+            }
+
+            .movie-details {
+                flex-grow: 1; /* Allow details to take remaining space */
             }
 
             h3, p {
                 margin: 0;
-            }
-
-            img {
-                max-width: 100%;
-                max-height: 200px;
-                margin-top: 10px;
             }
         </style>
     </head>
@@ -64,14 +68,15 @@
                         for (Movie movie : movies) {
                     %>
                     <li class="movie">
-                        <h3>Name: <%= movie.getName() %></h3>
-                        <p>Director: <%= movie.getDirector() %></p>
-                        <p>Cast: <%= movie.getCasts() %></p>
-                        <p>Release Date: <%= movie.getReleaseDate() %></p>
-                        <p>Duration: <%= movie.getDuration() %></p>
-                        <p>Description: <%= movie.getDescription() %></p>
-
-                        Poster: <img src="<%= movie.getPoster() %>" alt="<%= movie.getName() %> Poster">
+                        <img src="<%= movie.getPoster() %>" alt="<%= movie.getName() %> Poster">
+                        <div class="movie-details">
+                            <h3><b>Name:      </b> <%= movie.getName() %></h3>
+                            <p><b>Director:   </b> <%= movie.getDirector() %></p>
+                            <p><b>Cast:       </b> <%= movie.getCasts() %></p>
+                            <p><b>Release Date:</b> <%= movie.getReleaseDate() %></p>
+                            <p><b>Duration:   </b> <%= movie.getDuration() %></p>
+                            <p><b>Description:</b> <%= movie.getDescription() %></p>
+                        </div>
                     </li>
                     <%
                         }

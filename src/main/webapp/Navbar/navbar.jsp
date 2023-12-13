@@ -1,3 +1,6 @@
+<%@ page import="java.util.List" %>
+<%@ page import="com.otu.mtbs.model.Movie" %>
+<%@ page import="com.otu.mtbs.movie.dao.MovieDao" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -9,18 +12,17 @@
     </head>
     <body>
         <header>
-            <a href="navbar.jsp" class="logo">MTBS</a>
+            <a href="/Movie-Ticket-Booking-System/index.jsp" class="logo">MTBS</a>
             <nav>
-                <a href="navbar.jsp" class="active">Home</a>
-                <a href="/Movie-Ticket-Booking-System/User/userMovies.jsp">Filmler</a>
-                <a href="#services">Sepet</a>
+                <a href="/Movie-Ticket-Booking-System/index.jsp" class="active">Home</a>
                 <div class="dropdown">
                     <a href="#" class="login">Login</a>
                     <div class="dropdown-content">
-                        <a href="/Movie-Ticket-Booking-System/Admin/login.jsp">Admin Login</a>
-                        <a href="/Movie-Ticket-Booking-System/User/login.jsp">User Login</a>
+                        <a href="../Admin/login.jsp">Admin Login</a>
+                        <a href="../User/login.jsp">User Login</a>
                     </div>
-                </div>            
+                </div>   
+
                 <a href="#contact">Contact</a>
             </nav>
         </header>

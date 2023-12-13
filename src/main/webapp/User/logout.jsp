@@ -40,7 +40,7 @@
             }, 2000);
 
             setTimeout(function () {
-                window.location.href = "<%= request.getContextPath() %>/User/login.jsp";
+                window.location.href = "<%= request.getContextPath() %>/index.jsp";
             }, 2000);
         </script>
     </body>

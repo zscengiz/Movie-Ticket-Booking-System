@@ -12,16 +12,16 @@
     </head>
     <body>
         <header>
-            <a href="navbar.jsp" class="logo">MTBS</a>
+            <a href="../Navbar/navbar.jsp" class="logo">MTBS</a>
             <nav>
-                <a href="navbar.jsp" class="active">Home</a>
+                <a href="../Navbar/navbar.jsp" class="active">Home</a>
                 <a href="/Movie-Ticket-Booking-System/User/userMovies.jsp">Filmler</a>
                 <a href="#services">Sepet</a>
                 <div class="dropdown">
                     <a href="#" class="login">Login</a>
                     <div class="dropdown-content">
-                        <a href="../Admin/login.jsp">Admin Login</a>
-                        <a href="../User/login.jsp">User Login</a>
+                        <a href="/Movie-Ticket-Booking-System/Admin/login.jsp">Admin Login</a>
+                        <a href="/Movie-Ticket-Booking-System/User/login.jsp">User Login</a>
                     </div>
                 </div>   
                 <div class="dropdown">

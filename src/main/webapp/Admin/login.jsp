@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -9,6 +9,8 @@
                 <link rel="stylesheet" href="${pageContext.request.contextPath}/Admin/css/style.css">
     </head>
     <body>
+            <%@ include file="../Navbar/navbar.jsp" %>
+
         <div class="wrapper">
             <h2 class="text-right">Welcome</h2>
             <div class="form-wrapper login">
@@ -27,7 +29,7 @@
                         <input type="password" id="password" name="password" placeholder="Password" required>
                     </div>
                     <button type="submit">Login</button>
-                                        <% String errorMessage = (String)request.getAttribute("loginError"); %>
+                    <% String errorMessage = (String)request.getAttribute("loginError"); %>
                     <% if (errorMessage != null) { %>
                     <p style="color: red; margin-top: 10px;"><%= errorMessage %></p>
                     <% } %>
