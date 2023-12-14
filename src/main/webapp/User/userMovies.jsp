@@ -79,7 +79,7 @@
                         </div>
 
                         <%
-                            com.otu.mtbs.model.User user = (com.otu.mtbs.model.User)session.getAttribute("loggedAdmin");
+                            com.otu.mtbs.model.User user = (com.otu.mtbs.model.User)session.getAttribute("loggedUser");
                             if (user != null) {
                         %>
                         <a href="purchase.jsp?movieId=<%= Integer.toString(movie.getId())%>">Purchase</a>

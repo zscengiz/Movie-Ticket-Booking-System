@@ -31,11 +31,17 @@ public class SaloonDao {
         }
     }
 
-    public static boolean addSaloon(Saloon saloon) {
+     public static boolean addSaloon(Saloon saloon) {
         boolean isSuccess = false;
 
         try {
             Connection con = getConnection();
+
+            // Check if a saloon with the same name already exists
+            if (isSaloonNameExists(saloon.getName())) {
+                return false;
+            }
+
             PreparedStatement pst = con.prepareStatement("INSERT INTO SALOON (name, capacity) VALUES (?, ?);");
 
             pst.setString(1, saloon.getName());
@@ -50,6 +56,27 @@ public class SaloonDao {
 
         return isSuccess;
     }
+
+    // Add a method to check if a saloon with the same name already exists
+    public static boolean isSaloonNameExists(String saloonName) {
+        try {
+            Connection con = getConnection();
+            PreparedStatement pst = con.prepareStatement("SELECT COUNT(*) FROM SALOON WHERE name = ?;");
+            pst.setString(1, saloonName);
+            ResultSet rs = pst.executeQuery();
+
+            if (rs.next()) {
+                int count = rs.getInt(1);
+                return count > 0;
+            }
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        return false;
+    }
+
 
     public static List<Saloon> getAllSaloons() {
         List<Saloon> saloons = new ArrayList<>();

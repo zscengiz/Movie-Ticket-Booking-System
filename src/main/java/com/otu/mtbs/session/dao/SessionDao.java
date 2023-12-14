@@ -134,10 +134,15 @@ public class SessionDao {
     public static void deleteSessionsBySessionId(int sessionId) {
         try {
             Connection con = DriverManager.getConnection(URL, USER, PASSWORD);
-            PreparedStatement pst = con.prepareStatement("DELETE FROM SESSION WHERE id = ?");
+            String query1 = "SET FOREIGN_KEY_CHECKS=0;";
+            String query2 = "SET FOREIGN_KEY_CHECKS=1;";
+            con.prepareStatement(query1).executeUpdate();
+
+            PreparedStatement pst = con.prepareStatement("DELETE FROM SESSION WHERE id = ?;");
 
             pst.setInt(1, sessionId);
             int rowsAffected = pst.executeUpdate();
+            con.prepareStatement(query2).executeUpdate();
 
             if (rowsAffected != 1) {
                 System.err.println("Failed to delete session with id: " + sessionId);
@@ -171,5 +176,71 @@ public class SessionDao {
         }
 
         return session;
+    }
+
+
+    public static Integer getSaloonCapacityBySessionId(int sessionId) {
+        Integer capacity = null;
+
+        try {
+            Connection con = DriverManager.getConnection(URL, USER, PASSWORD);
+
+            PreparedStatement pst = con.prepareStatement("SELECT * FROM SESSION WHERE id = ?");
+
+            pst.setInt(1, sessionId);
+            ResultSet rs = pst.executeQuery();
+
+            if (rs.next()) {
+                capacity = getSaloonCapacityById(rs.getInt("capacity"));
+            }
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        return capacity;
+    }
+
+    public static Integer getSaloonCapacityById(int saloonId) {
+        Integer capacity = null;
+
+        try {
+            Connection con = DriverManager.getConnection(URL, USER, PASSWORD);
+
+            PreparedStatement pst = con.prepareStatement("SELECT CAPACITY FROM SALOON WHERE id = ?");
+
+            pst.setInt(1, saloonId);
+            ResultSet rs = pst.executeQuery();
+
+            if (rs.next()) {
+                capacity = rs.getInt("capacity");
+            }
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        return capacity;
+    }
+
+    public List<Integer> getPurchasedSeatsBySessionId(int sessionId) {
+        List<Integer> seats = new ArrayList<>();
+
+        try {
+            Connection con = DriverManager.getConnection(URL, USER, PASSWORD);
+            PreparedStatement pst = con.prepareStatement("SELECT SEAT_NUMBER FROM PURCHASE WHERE SESSION_ID = ?");
+
+            pst.setInt(1, sessionId);
+            ResultSet rs = pst.executeQuery();
+
+            while (rs.next()) {
+                seats.add(rs.getInt("SEAT_NUMBER"));
+            }
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        return seats;
     }
 }
