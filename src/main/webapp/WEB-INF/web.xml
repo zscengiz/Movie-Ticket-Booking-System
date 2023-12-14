@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="6.0" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd">
+    <error-page>
+        <error-code>404</error-code>
+        <location>/404.jsp</location>
+    </error-page>
     <servlet>
         <servlet-name>AdminLoginServlet</servlet-name>
         <servlet-class>com.otu.mtbs.admin.servlet.AdminLoginServlet</servlet-class>
@@ -52,6 +56,18 @@
         <servlet-name>MovieServlet</servlet-name>
         <servlet-class>MovieServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UserLogoutServlet</servlet-name>
+        <servlet-class>com.otu.mtbs.user.servlet.UserLogoutServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UserProfileServlet</servlet-name>
+        <servlet-class>com.otu.mtbs.user.servlet.UserProfileServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UserChangePasswordServlet</servlet-name>
+        <servlet-class>com.otu.mtbs.user.servlet.UserChangePasswordServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AdminLoginServlet</servlet-name>
         <url-pattern>/AdminLoginServlet</url-pattern>
@@ -103,6 +119,18 @@
     <servlet-mapping>
         <servlet-name>MovieServlet</servlet-name>
         <url-pattern>/MovieServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UserLogoutServlet</servlet-name>
+        <url-pattern>/UserLogoutServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UserProfileServlet</servlet-name>
+        <url-pattern>/UserProfileServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UserChangePasswordServlet</servlet-name>
+        <url-pattern>/UserChangePasswordServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
