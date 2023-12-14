@@ -40,7 +40,7 @@ public class AdminLoginServlet extends HttpServlet {
 
             if (admin != null) {
                 HttpSession session = request.getSession();
-                session.setAttribute("loggedAdmin", admin);
+                session.setAttribute("loggedUser", admin);
                 response.sendRedirect("/Movie-Ticket-Booking-System/Admin/adminMovies.jsp");
 
             } else {

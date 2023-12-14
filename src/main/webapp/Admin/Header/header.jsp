@@ -36,9 +36,7 @@
                     </div>
                 </div>    
 
-
-
-                <a href="#contact">Profile</a>
+                <a href="/Movie-Ticket-Booking-System/User/userProfile.jsp">Profile</a>
 
             </nav>
 
