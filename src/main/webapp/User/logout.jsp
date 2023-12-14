@@ -6,42 +6,49 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <%
+    // Get the current session
     HttpSession currentSession = request.getSession(false);
 
+    // Clear cookies
     Cookie[] cookies = request.getCookies();
     if (cookies != null) {
         for (Cookie cookie : cookies) {
-            cookie.setMaxAge(0); 
+            cookie.setMaxAge(0);
             response.addCookie(cookie);
         }
     }
 
+    // Invalidate the session if exists
     if (currentSession != null) {
         currentSession.invalidate();
     }
 %>
 
-<html>
-    <head>
-        <title>Logout</title>
-    </head>
-    <body>
-        <div id="logoutMessage" style="display:none; background-color: #4CAF50; color: white; padding: 10px; position: fixed; top: 0; left: 50%; transform: translateX(-50%); z-index: 1000;">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logout</title>
+</head>
+<body>
+    <div id="logoutMessage" style="display:none; background-color: #4CAF50; color: white; padding: 10px; position: fixed; top: 0; left: 50%; transform: translateX(-50%); z-index: 1000;">
 
-            The session has been terminated successfully. 
-        
-        </div>
+        The session has been terminated successfully.
 
-        <script>
-            document.getElementById("logoutMessage").style.display = "block";
+    </div>
 
-            setTimeout(function () {
-                document.getElementById("logoutMessage").style.display = "none";
-            }, 2000);
+    <script>
+        document.getElementById("logoutMessage").style.display = "block";
 
-            setTimeout(function () {
-                window.location.href = "<%= request.getContextPath() %>/index.jsp";
-            }, 2000);
-        </script>
-    </body>
+        setTimeout(function () {
+            document.getElementById("logoutMessage").style.display = "none";
+        }, 2000);
+
+        setTimeout(function () {
+            window.location.href = "<%= request.getContextPath() %>/index.jsp";
+        }, 2000);
+    </script>
+</body>
 </html>

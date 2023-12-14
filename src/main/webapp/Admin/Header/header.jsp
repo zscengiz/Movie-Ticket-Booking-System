@@ -13,20 +13,10 @@
     <body>
 
         <header>
-            <a href="dashboard.jsp" class="logo">Dashboard</a>
+            <a href="#" class="logo">Dashboard</a>
             <nav>
                 <a href="navbar.jsp" class="active"></a>
                 <a href="/Movie-Ticket-Booking-System/Admin/adminMovies.jsp">Movies</a>
-
-                <div class="dropdown">
-                    <a href="#" class="login">Delete</a>
-                    <div class="dropdown-content">
-                        <a href="/Movie-Ticket-Booking-System/Admin/moviesList.jsp">Delete Movie</a>
-                        <a href="/Movie-Ticket-Booking-System/Admin/sessionList.jsp">Delete Session</a>
-                        <a href="/Movie-Ticket-Booking-System/Admin/saloonList.jsp">Delete Saloon</a>
-                    </div>
-                </div>    
-
                 <div class="dropdown">
                     <a href="#" class="login">Add</a>
                     <div class="dropdown-content">
@@ -34,7 +24,19 @@
                         <a href="/Movie-Ticket-Booking-System/Admin/addSaloon.jsp">Add Saloon</a>
                         <a href="/Movie-Ticket-Booking-System/Admin/addSession.jsp">Add Session</a>
                     </div>
-                </div>     
+                </div>    
+
+                <div class="dropdown">
+                    <a href="#" class="login">Delete</a>
+                    <div class="dropdown-content">
+                        <a href="/Movie-Ticket-Booking-System/Admin/moviesList.jsp">Delete Movie</a>
+                        <a href="/Movie-Ticket-Booking-System/Admin/saloonList.jsp">Delete Saloon</a>
+                        <a href="/Movie-Ticket-Booking-System/Admin/sessionList.jsp">Delete Session</a>
+
+                    </div>
+                </div>    
+
+
 
                 <a href="#contact">Profile</a>
 

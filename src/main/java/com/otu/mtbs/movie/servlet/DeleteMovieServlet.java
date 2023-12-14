@@ -22,16 +22,16 @@ public class DeleteMovieServlet extends HttpServlet {
                 boolean isSuccess = DeleteMovieDao.deleteMovie(movieID);
 
                 if (isSuccess) {
-                    response.sendRedirect("Admin/adminMovies.jsp?deleteSuccess=true");
+                    response.sendRedirect("Admin/moviesList.jsp?deleteSuccess=true");
                 } else {
-                    response.sendRedirect("Admin/adminMovies.jsp?deleteError=true");
+                    response.sendRedirect("Admin/moviesList.jsp?deleteError=true");
                 }
             } catch (NumberFormatException ex) {
                 ex.printStackTrace();
-                response.sendRedirect("Admin/adminMovies.jsp?deleteError=true");
+                response.sendRedirect("Admin/moviesList.jsp?deleteError=true");
             }
         } else {
-            response.sendRedirect("Admin/adminMovies.jsp?deleteError=true");
+            response.sendRedirect("Admin/moviesList.jsp?deleteError=true");
         }
     }
 }

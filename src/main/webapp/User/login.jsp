@@ -10,8 +10,6 @@
 
     </head>
     <body>
-            <%@ include file="../User/Navbar/navbar.jsp" %>
-
         <div class="wrapper">
             <h2 class="text-right">Welcome</h2>
             <div class="form-wrapper login">

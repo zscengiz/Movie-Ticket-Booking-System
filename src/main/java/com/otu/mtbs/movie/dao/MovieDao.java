@@ -1,5 +1,6 @@
 package com.otu.mtbs.movie.dao;
 
+import com.otu.mtbs.connection.ConnectionDB;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -143,11 +144,11 @@ public class MovieDao {
         return false;
     }
 
-    public List<Movie> getAllMovies() {
+    public List<Movie> getAllMovies() throws ClassNotFoundException {
         List<Movie> movies = new ArrayList<>();
 
         try {
-            Connection con = getConnection();
+            Connection con = ConnectionDB.getConnection();
             PreparedStatement pst = con.prepareStatement("SELECT * FROM MOVIE");
             ResultSet rs = pst.executeQuery();
 

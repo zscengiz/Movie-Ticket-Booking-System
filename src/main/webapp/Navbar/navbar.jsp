@@ -18,8 +18,8 @@
                 <div class="dropdown">
                     <a href="#" class="login">Login</a>
                     <div class="dropdown-content">
-                        <a href="../Admin/login.jsp">Admin Login</a>
-                        <a href="../User/login.jsp">User Login</a>
+                        <a href="/Movie-Ticket-Booking-System/Admin/login.jsp">Admin Login</a>
+                        <a href="/Movie-Ticket-Booking-System/User/login.jsp">User Login</a>
                     </div>
                 </div>   
 

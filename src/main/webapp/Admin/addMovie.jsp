@@ -5,6 +5,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        
         <title>Add Movie</title>
         <style>
             body {
@@ -120,31 +121,29 @@
                     <div id="message"></div>
                     <div class="form-group">
                         <label for="name">Movie Name:</label>
-                        <input type="text" id="name" name="name" required>
+                        <input type="text" id="name" name="name" required maxlength="200">
 
                         <label for="director">Director:</label>
-                        <input type="text" id="director" name="director" required>
+                        <input type="text" id="director" name="director" required maxlength="200">
 
                         <label for="casts">Cast:</label>
-                        <input type="text" id="casts" name="casts" required>
+                        <input type="text" id="casts" name="casts" required maxlength="200">
 
                         <div id="uploadImage">
                             <label for="poster">Poster:</label>
                             <input type="text" name="posterUrl" required>
-                            <img src="" alt="Poster Preview" id="posterPreview">
-                            <!-- type= file dene sonra-->
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="releaseDate">Release Date:</label>
-                        <input type="datetime-local" id="releaseDate" name="releaseDate" required>
+                        <input type="datetime-local" id="releaseDate" name="releaseDate" required maxlength="200">
 
                         <label for="duration">Duration:</label>
-                        <input type="number" id="duration" name="duration" required>
+                        <input type="number" id="duration" name="duration" required maxlength="200">
 
                         <label for="description">Description:</label>
-                        <textarea type="text" id="description" name="description" rows="4" required></textarea>
+                        <textarea type="text" id="description" name="description" rows="4" required maxlength="200"></textarea>
                     </div>
 
                     <button type="submit">Add Movie</button>

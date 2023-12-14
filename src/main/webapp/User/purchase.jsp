@@ -68,17 +68,28 @@
                 transition: opacity 1s ease-in-out;
             }
 
-            p.error-message {
-                color: red;
+            .error-message {
+                background-color: red;
+                color: white;
+                padding: 10px;
+                margin-top: 10px;
+                opacity: 1;
+                height: 10px;
+                transition: opacity 1s ease-in-out;
             }
         </style>
         <script>
 
             function hideSuccessMessage() {
                 var successMessage = document.getElementById('successMessage');
+                var errorMessage = document.getElementById('errorMessage');
                 if (successMessage) {
                     setTimeout(function () {
                         successMessage.style.opacity = '0';
+                    }, 1200);
+                }else if(errorMessage){
+                     setTimeout(function () {
+                        errorMessage.style.opacity = '0';
                     }, 1200);
                 }
             }
@@ -88,6 +99,8 @@
         </script>
     </head>
     <body>
+                <%@ include file="../User/Navbar/navbar.jsp" %>
+
         <form method="post" action="/Movie-Ticket-Booking-System/CreatePurchaseServlet">
             <label for="sessionId">Select Movie Session:</label>
             <select name="sessionId" id="sessionId">
@@ -127,7 +140,17 @@
             <%= successMessage %>
         </div>
         <% } %>
-
+        
+        <% 
+            String errorMessage = (String) request.getAttribute("errorMessage");
+            if (errorMessage != null) {
+        %>
+        <div id="errorMessage" class="error-message">
+            <%= errorMessage %>
+        </div>
+        <% } %>
+        
+<!-- bu aşağısı kaldırılacak satın aldığı zaman satın alındı denilecek ve ve tekrar ana sayfaya geçecek  profile bilgilerinde ne aldğı gözükecek.-->
         <div id="movieDetails">
             <h2>Selected Movie Details</h2>
             <%
@@ -150,12 +173,5 @@
             <!--  update  -->
             <% } %>
         </div>
-
-        <% 
-            String errorMessage = (String) request.getAttribute("errorMessage");
-            if (errorMessage != null) {
-        %>
-        <p class="error-message"><%= errorMessage %></p>
-        <% } %>
     </body>
 </html>

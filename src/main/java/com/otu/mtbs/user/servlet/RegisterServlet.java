@@ -37,7 +37,7 @@ public class RegisterServlet extends HttpServlet {
 
             if (isSuccess) {
                 HttpSession session = request.getSession();
-                response.sendRedirect("Admin/dashboard.jsp");
+                response.sendRedirect("Admin/userMovies.jsp");
 
             } else {
                 request.setAttribute("loginError", "Invalid email. Please try again.");

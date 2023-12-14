@@ -35,7 +35,7 @@
             <% if (request.getParameter("deleteSuccess") != null) { %>
             <p style="color: green;">Session deleted successfully!</p>
             <% } else if (request.getParameter("deleteError") != null) { %>
-            <p style="color: red;">Error deleting saloon. Please try again.</p>
+            <p style="color: red;">Error deleting session. Please try again.</p>
             <% } %>
 
             <table border="1">
@@ -53,7 +53,7 @@
                     <td><%= s.getMovieId() %></td>
                     <td><%= s.getSaloonId() %></td>
                     <td>
-                        <form action="/Movie-Ticket-Booking-System/DeleteSessionServlet" method="post">
+                        <form action="/Movie-Ticket-Booking-System/DeleteSessionServlet" method="post" onsubmit="return confirm('Are you sure you want to delete this session?');">
                             <input type="hidden" name="sessionId" value="<%= s.getId() %>">
                             <input type="submit" value="Delete">
                         </form>

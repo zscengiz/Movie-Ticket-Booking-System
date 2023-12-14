@@ -12,11 +12,10 @@
     </head>
     <body>
         <header>
-            <a href="../Navbar/navbar.jsp" class="logo">MTBS</a>
+            <a href="#" class="logo">MTBS</a>
             <nav>
-                <a href="../Navbar/navbar.jsp" class="active">Home</a>
+              <!--  <a href="/Movie-Ticket-Booking-System/User/Navbar/navbar.jsp" class="active">Home</a> api yap?l?rsa konulacak-->
                 <a href="/Movie-Ticket-Booking-System/User/userMovies.jsp">Filmler</a>
-                <a href="#services">Sepet</a>
                 <div class="dropdown">
                     <a href="#" class="login">Login</a>
                     <div class="dropdown-content">
@@ -27,7 +26,7 @@
                 <div class="dropdown">
                     <a href="#" class="login">Profile</a>
                     <div class="dropdown-content">
-                        <a href="#profile" class="login">Profil</a>
+                        <a href="/Movie-Ticket-Booking-System/User/userProfile.jsp" class="login">Profil</a>
                         <a href="/Movie-Ticket-Booking-System/User/logout.jsp" class="login">Logout</a>
                     </div>
                 </div>     

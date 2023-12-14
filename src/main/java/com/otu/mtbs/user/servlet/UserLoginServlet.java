@@ -5,6 +5,7 @@ import com.otu.mtbs.model.User;
 import com.otu.mtbs.user.dao.UserDao;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -32,8 +33,14 @@ public class UserLoginServlet extends HttpServlet {
 
             if (user != null) {
                 HttpSession session = request.getSession();
-                session.setAttribute("loggedAdmin", user);
-                response.sendRedirect("Navbar/navbar.jsp");
+                session.setAttribute("loggedUser", user);
+
+                // Set a cookie with user information
+                Cookie userCookie = new Cookie("user", user.getId() + ":" + user.getEmail());
+                userCookie.setMaxAge(3600);
+                response.addCookie(userCookie);
+
+                response.sendRedirect("User/userMovies.jsp");
 
             } else {
 
@@ -47,7 +54,7 @@ public class UserLoginServlet extends HttpServlet {
             Logger.getLogger(UserLoginServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)

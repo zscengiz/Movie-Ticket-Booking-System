@@ -24,7 +24,7 @@ public class AdminDao {
     }
 
     public User logAdmin(String email, String password) {
-
+        
         User admin = null;
 
         try {

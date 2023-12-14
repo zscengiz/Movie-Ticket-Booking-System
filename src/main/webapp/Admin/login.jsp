@@ -9,8 +9,6 @@
                 <link rel="stylesheet" href="${pageContext.request.contextPath}/Admin/css/style.css">
     </head>
     <body>
-            <%@ include file="../Navbar/navbar.jsp" %>
-
         <div class="wrapper">
             <h2 class="text-right">Welcome</h2>
             <div class="form-wrapper login">

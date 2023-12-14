@@ -41,7 +41,7 @@ public class AdminLoginServlet extends HttpServlet {
             if (admin != null) {
                 HttpSession session = request.getSession();
                 session.setAttribute("loggedAdmin", admin);
-                response.sendRedirect("Admin/dashboard.jsp");
+                response.sendRedirect("/Movie-Ticket-Booking-System/Admin/adminMovies.jsp");
 
             } else {
                 request.setAttribute("loginError", "Invalid email or password. Please try again.");

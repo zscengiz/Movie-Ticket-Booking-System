@@ -1,6 +1,5 @@
 package com.otu.mtbs.movie.dao;
 
-import com.otu.mtbs.session.dao.SessionDao;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -25,10 +24,6 @@ public class DeleteMovieDao {
 
             isSuccess = rowsAffected == 1;
 
-            // Film başarıyla silindiği durumda ilişkili sessionları da siler
-            if (isSuccess) {
-                SessionDao.deleteSessionsByMovieId(movieId);
-            }
 
         } catch (SQLException ex) {
             ex.printStackTrace();
