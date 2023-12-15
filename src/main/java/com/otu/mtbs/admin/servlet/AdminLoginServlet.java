@@ -9,6 +9,7 @@ import com.otu.mtbs.model.User;
 import com.otu.mtbs.admin.dao.AdminDao;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -40,12 +41,16 @@ public class AdminLoginServlet extends HttpServlet {
 
             if (admin != null) {
                 HttpSession session = request.getSession();
-                session.setAttribute("loggedUser", admin);
-                response.sendRedirect("/Movie-Ticket-Booking-System/Admin/adminMovies.jsp");
+                session.setAttribute("loggedAdmin", admin);
+                Cookie adminCookie = new Cookie("loggedAdmin", admin.getEmail());
+                adminCookie.setMaxAge(3600); // Cookie'nin ömrü 1 saat (3600 saniye)
+                response.addCookie(adminCookie);
+                request.setAttribute("successMessage", "Success Message: Successful login.");
+                request.getRequestDispatcher("Admin/adminLoginSuccess.jsp").forward(request, response);
 
             } else {
                 request.setAttribute("loginError", "Invalid email or password. Please try again.");
-                
+
                 RequestDispatcher rd = request.getRequestDispatcher("Admin/login.jsp");
                 rd.forward(request, response);
 
