@@ -1,6 +1,6 @@
 package com.otu.mtbs.purchase.dao;
 
-import com.otu.mtbs.model.Purchase;
+import com.otu.mtbs.model.PurchaseBean;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -15,7 +15,7 @@ public class PurchaseDao {
         this.con = con;
     }
 
-    public boolean savePurchase(Purchase purchase) {
+    public boolean savePurchase(PurchaseBean purchase) {
         boolean isSuccess = false;
 
         try {
