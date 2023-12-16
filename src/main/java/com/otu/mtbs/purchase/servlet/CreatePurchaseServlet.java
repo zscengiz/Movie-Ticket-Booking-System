@@ -27,6 +27,7 @@ public class CreatePurchaseServlet extends HttpServlet {
 
             int userId = user.getId();
             String movieName = new MovieDao().getMovieBySessionId(sessionId).getName();
+            Integer capacity = new SessionDao().getSaloonCapacityBySessionId(sessionId);
 
             List<Integer> seats = new SessionDao().getPurchasedSeatsBySessionId(sessionId);
 
@@ -34,11 +35,16 @@ public class CreatePurchaseServlet extends HttpServlet {
                 request.setAttribute("errorMessage", "Seat number already purchased.");
                 request.getRequestDispatcher("User/purchaseError.jsp").forward(request, response);
                 return; // Return to avoid further processing
+            } else if(seatNumber > capacity || seatNumber <= 0){
+                request.setAttribute("errorMessage", "There is no seat number like this.");
+                request.getRequestDispatcher("User/purchaseError.jsp").forward(request, response);
+                return; // Return to avoid further processing
             }
+          
 
             PurchaseBean purchase = new PurchaseBean(null, userId, sessionId, movieName, 1, seatNumber);
 
-            isSuccess = new PurchaseDao(ConnectionDB.getConnection()).savePurchase(purchase);
+            isSuccess = new PurchaseDao().savePurchase(purchase);
 
             if (isSuccess) {
                 request.setAttribute("successMessage", "Purchase successful. Your tickets have been reserved.");
