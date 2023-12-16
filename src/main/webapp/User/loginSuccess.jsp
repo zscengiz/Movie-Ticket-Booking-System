@@ -7,7 +7,7 @@
     <script type="text/javascript">
         function redirectToUserMovies() {
             setTimeout(function () {
-                window.location.href = "/Movie-Ticket-Booking-System/User/login.jsp";
+                window.location.href = "/Movie-Ticket-Booking-System/User/userMovies.jsp";
             }, 2000);
         }
         window.onload = redirectToUserMovies;
@@ -15,7 +15,7 @@
 </head>
 <body>
     <div style="background-color: #4CAF50; color: white; padding: 10px;">
-        Success Message: <%= request.getAttribute("successMessage") %>
+        <%= request.getAttribute("successMessage") %>
     </div>
 </body>
 </html>
