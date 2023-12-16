@@ -1,5 +1,6 @@
 package com.otu.mtbs.session.dao;
 
+import com.otu.mtbs.model.Saloon;
 import com.otu.mtbs.model.Session;
 
 import java.sql.Connection;
@@ -178,8 +179,7 @@ public class SessionDao {
         return session;
     }
 
-
-    public static Integer getSaloonCapacityBySessionId(int sessionId) {
+    public Integer getSaloonCapacityBySessionId(int sessionId) {
         Integer capacity = null;
 
         try {
@@ -191,7 +191,7 @@ public class SessionDao {
             ResultSet rs = pst.executeQuery();
 
             if (rs.next()) {
-                capacity = getSaloonCapacityById(rs.getInt("capacity"));
+                capacity = getSaloonCapacityById(rs.getInt("saloon_id"));
             }
 
         } catch (SQLException ex) {
@@ -242,5 +242,36 @@ public class SessionDao {
         }
 
         return seats;
+    }
+
+    public static Saloon getSaloonBySessionId(int sessionId) {
+        Saloon saloon = null;
+
+        try {
+            Connection con = DriverManager.getConnection(URL, USER, PASSWORD);
+
+            PreparedStatement pst = con.prepareStatement("SELECT SALOON_ID FROM SESSION WHERE id = ?");
+
+            pst.setInt(1, sessionId);
+            ResultSet rs = pst.executeQuery();
+
+            if (rs.next()) {
+
+                PreparedStatement pst2 = con.prepareStatement("SELECT * FROM SALOON WHERE id = ?");
+                pst2.setInt(1, rs.getInt("saloon_id"));
+                ResultSet rs2 = pst2.executeQuery();
+
+                if (rs2.next()) {
+                    saloon = new Saloon();
+                    saloon.setName(rs2.getString("name"));
+                }
+
+            }
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        return saloon;
     }
 }

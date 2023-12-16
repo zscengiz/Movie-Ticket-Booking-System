@@ -31,13 +31,21 @@ public class RegisterServlet extends HttpServlet {
             String password = request.getParameter("password");
             String name = request.getParameter("name");
 
+            if (!email.endsWith(".com")) {
+                request.setAttribute("emailError", "The email must end with '.com.' .");
+                RequestDispatcher rd = request.getRequestDispatcher("User/register.jsp");
+                rd.forward(request, response);
+                return;
+            }
+
             UserDao dao = new UserDao(ConnectionDB.getConnection());
 
             Boolean isSuccess = dao.registerUser(email, password, name);
 
             if (isSuccess) {
                 HttpSession session = request.getSession();
-                response.sendRedirect("Admin/userMovies.jsp");
+                request.setAttribute("successMessage", "Successful registration, you are directed to the login page.");
+                request.getRequestDispatcher("User/registrationSuccess.jsp").forward(request, response);
 
             } else {
                 request.setAttribute("loginError", "Invalid email. Please try again.");
