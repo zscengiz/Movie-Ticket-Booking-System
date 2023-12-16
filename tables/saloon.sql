@@ -27,7 +27,7 @@ CREATE TABLE `saloon` (
   `name` varchar(250) NOT NULL,
   `capacity` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -36,7 +36,6 @@ CREATE TABLE `saloon` (
 
 LOCK TABLES `saloon` WRITE;
 /*!40000 ALTER TABLE `saloon` DISABLE KEYS */;
-INSERT INTO `saloon` VALUES (51,'s',12);
 /*!40000 ALTER TABLE `saloon` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -49,4 +48,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-12-14 23:17:16
+-- Dump completed on 2023-12-16 16:18:22

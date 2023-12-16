@@ -34,7 +34,7 @@ CREATE TABLE `purchase` (
   KEY `user_id` (`user_id`),
   CONSTRAINT `purchase_ibfk_1` FOREIGN KEY (`session_id`) REFERENCES `SESSION` (`id`),
   CONSTRAINT `purchase_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `USER` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=68 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -43,7 +43,6 @@ CREATE TABLE `purchase` (
 
 LOCK TABLES `purchase` WRITE;
 /*!40000 ALTER TABLE `purchase` DISABLE KEYS */;
-INSERT INTO `purchase` VALUES (35,1,71,'217',1,12),(36,1,73,'em6irhan',1,12),(37,1,73,'em6irhan',1,12),(38,1,73,'em6irhan',1,12),(39,1,73,'em6irhan',1,10),(40,1,73,'em6irhan',1,10),(41,1,73,'em6irhan',1,11),(42,1,82,'Alperen Alperen Alperen',1,12),(43,1,86,'sude',1,12),(44,9,104,'t',1,1),(45,9,104,'t',1,1),(46,9,104,'t',1,2),(47,9,104,'t',1,3),(48,9,104,'t',1,1),(49,9,104,'t',1,1);
 /*!40000 ALTER TABLE `purchase` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -56,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-12-14 23:17:15
+-- Dump completed on 2023-12-16 16:18:21
