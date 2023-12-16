@@ -4,9 +4,12 @@
  */
 package com.otu.mtbs.user.dao;
 
+import com.otu.mtbs.model.PurchaseBean;
 import com.otu.mtbs.model.User;
 import jakarta.servlet.http.HttpSession;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 import org.mindrot.jbcrypt.BCrypt;
 
 public class UserDao {
@@ -112,20 +115,52 @@ public class UserDao {
 
     }
 
-    public void changePassword(int userId, String newPassword) {
+    public Boolean changePassword(int userId, String currentPassword, String newPassword) {
+        try {
+
+            query = "SELECT * FROM USER WHERE ROLE='2' AND ID =?";
+            pst = con.prepareStatement(query);
+            pst.setInt(1, userId);
+            rs = pst.executeQuery();
+
+            if (rs.next()) {
+
+                if (checkPassword(currentPassword, rs.getString("password"))) {
+                    return updatePassword(newPassword, userId);
+
+                } else {
+                    return false;
+                }
+
+            }
+            return false;
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            return false;
+
+        }
+    }
+
+    private Boolean updatePassword(String newPassword, int userId) {
+
         try {
             query = "UPDATE USER SET password = ? WHERE id = ?";
             pst = con.prepareStatement(query);
-            pst.setString(1, newPassword);
+            pst.setString(1, hashPassword(newPassword));
             pst.setInt(2, userId);
 
             int updatedRows = pst.executeUpdate();
 
             if (updatedRows == 0) {
                 System.out.println("Password update failed for user with ID: " + userId);
+                return false;
             }
+
+            return true;
         } catch (SQLException ex) {
             ex.printStackTrace();
+            return false;
         }
     }
 

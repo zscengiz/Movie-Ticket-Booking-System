@@ -1,11 +1,27 @@
 <%@ page import="com.otu.mtbs.model.User" %>
 <%@ page import="com.otu.mtbs.user.dao.UserDao" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="com.otu.mtbs.model.Purchase" %>
+<%@ page import="com.otu.mtbs.purchase.dao.PurchaseDao" %>
+<%@ page import="com.otu.mtbs.saloon.dao.SaloonDao" %>
+<%@ page import="com.otu.mtbs.session.dao.SessionDao" %>
+<%@ page import="com.otu.mtbs.model.Saloon" %>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+    com.otu.mtbs.model.User userr = (com.otu.mtbs.model.User)session.getAttribute("loggedUser");
+    if (userr == null) {
+        response.sendRedirect("../User/indxLoginError.jsp");
+        return;
+    }
+%>
 
 <!doctype html>
 
 <html>
     <head>
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/User/css/style.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/User/Navbar/navbar.css">
+
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
         <style>
@@ -70,6 +86,22 @@
                 border: 0;
                 margin-bottom: 1rem;
             }
+            .alert-danger {
+                color: #721c24;
+                background-color: #f8d7da;
+                border: 1px solid #f5c6cb;
+                border-radius: 5px;
+                padding: 0.75rem 1.25rem;
+                margin-bottom: 1rem;
+            }
+            .alert-success {
+                color: #155724;
+                background-color: #d4edda;
+                border: 1px solid #c3e6cb;
+                border-radius: 5px;
+                padding: 0.75rem 1.25rem;
+                margin-bottom: 1rem;
+            }
         </style>
     </head>
     <body>  
@@ -108,31 +140,82 @@
                     </div>
                 </div>
                 <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+                    <form action="/Movie-Ticket-Booking-System/UpdatePasswordServlet" method="post">
+
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <div class="row gutters">
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                        <h6 class="mb-2 text-primary">Personal Details</h6>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+
+                                        <div class="form-group">
+                                            <label for="currentPassword">Current Password: </label>
+                                            <input type="password" name="currentPassword" class="form-control" id="currentPassword" placeholder="Current Password:" maxlength="20" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <label for="newPassword">New Password: </label>
+                                            <input type="password" name="newPassword" class="form-control" id="newPassword" placeholder="New Password" maxlength="20" required>
+                                        </div>
+                                    </div>
+
+                                    <input type="submit" id="submit" name="submit" value="Update" class="btn btn-primary">
+
+                                </div>
+                                <% if (request.getAttribute("successMessage") != null) { %>
+                                <div class="alert alert-success" role="alert">
+                                    <%= request.getAttribute("successMessage") %>
+                                </div>
+                                <% } else if (request.getAttribute("errorMessage") != null) { %>
+                                <div class="alert alert-danger" role="alert">
+                                    <%= request.getAttribute("errorMessage") %>
+                                </div>
+                                <% } %>
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
                     <div class="card h-100">
                         <div class="card-body">
                             <div class="row gutters">
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                    <h6 class="mb-2 text-primary">Personal Details</h6>
+                                    <h6 class="mb-2 text-primary">Purchase History</h6>
                                 </div>
-                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                    <div class="form-group">
-                                        <label for="fullName">Current Password: </label>
-                                        <input type="text" name="currentPassword" class="form-control" id="fullName" placeholder="Current Password:">
-                                    </div>
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 account-settings">
+                                    <% 
+                                        List<Purchase> purchaseHistory = new PurchaseDao().getAllPurchaseByUserId(user.getId());
+
+                                        if (purchaseHistory.isEmpty()) { %>
+                                    <p>No purchase history available.</p>
+                                    <% } else { %>
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Movie Name</th>
+                                                <th>Saloon Name</th>
+                                                <th>Seat Number</th>
+                                            </tr>
+                                        </thead>
+
+                                        <%                                                                                           
+                                            for (Purchase purchase : purchaseHistory) { 
+                                                Saloon saloon = SessionDao.getSaloonBySessionId(purchase.getSessionId());
+                                        %>       
+                                        <tr>
+                                            <td><%= purchase.getMovieName() %></td>
+                                            <td><%= saloon.getName() %></td>
+                                            <td><%= purchase.getSeatNumber() %></td>
+                                        </tr>
+                                        <% } %>
+
+                                    </table>
+                                    <% } %>
                                 </div>
-                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                    <div class="form-group">
-                                        <label for="eMail">New Password: </label>
-                                        <input type="text" name="newPassword" class="form-control" id="eMail" placeholder="New Password">
-                                    </div>
-                                </div>
-                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                    <div class="form-group">
-                                        <label for="eMail">Confirm New Password: </label>
-                                        <input type="text" name="confirmPassword" class="form-control" id="eMail" placeholder="Confirm New Password">
-                                    </div>
-                                </div>
-                                <button type="button" id="submit" name="submit" class="btn btn-primary">Update</button>
                             </div>
                         </div>
                     </div>
