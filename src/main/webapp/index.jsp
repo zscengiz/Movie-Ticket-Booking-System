@@ -1,15 +1,15 @@
 <%@ page import="java.util.List" %>
 <%@ page import="com.otu.mtbs.model.Movie" %>
 <%@ page import="com.otu.mtbs.movie.dao.MovieDao" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <html>
-<head>
-    <link rel="stylesheet" href="Navbar/navbar.css">
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <head>
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/User/Navbar/navbar.css">
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
-    <title>User Movies</title>
-    <style>
-body {
+        <title>User Movies</title>
+        <style>
+            body {
                 font-family: Arial, sans-serif;
                 margin: 0;
                 padding: 0;
@@ -59,46 +59,46 @@ body {
             h3, p {
                 margin: 0;
             }    </style>
-</head>
-<body>
-<%@ include file="Navbar/navbar.jsp" %>
-<main>
-    <div class="container">
-        <ul id="movieList">
-            <%
-                List<Movie> moviesList = new MovieDao().getAllMovies();
-                for (Movie movie : moviesList) {
-            %>
-            <li class="movie">
-                <img src="<%= movie.getPoster() %>" alt="<%= movie.getName() %> Poster">
-                <div class="movie-details">
-                    <h3><b>Name:      </b> <%= movie.getName() %></h3>
-                    <p><b>Director:   </b> <%= movie.getDirector() %></p>
-                    <p><b>Cast:       </b> <%= movie.getCasts() %></p>
-                    <p><b>Release Date:</b> <%= movie.getReleaseDate() %></p>
-                    <p><b>Duration:   </b> <%= movie.getDuration() %></p>
-                    <p><b>Description:</b> <%= movie.getDescription() %></p>
-                </div>
-                <%
-                    com.otu.mtbs.model.User user = (com.otu.mtbs.model.User) session.getAttribute("loggedUser");
-                %>
-                <%
-                    if (user != null) {
-                %>
-                    <a href="purchase.jsp?movieId=<%= Integer.toString(movie.getId())%>">Purchase</a>
-                <%
-                    } else {
-                %>
-                    <p style="color: red;">You need to login to make a purchase. <a href="User/login.jsp">Login</a></p>
-                <%
-                    }
-                %>
-            </li>
-            <%
-                }
-            %>
-        </ul>
-    </div>
-</main>
-</body>
+    </head>
+    <body>
+        <%@ include file="Navbar/navbar.jsp" %>
+        <main>
+            <div class="container">
+                <ul id="movieList">
+                    <%
+                        List<Movie> moviesList = new MovieDao().getAllMovies();
+                        for (Movie movie : moviesList) {
+                    %>
+                    <li class="movie">
+                        <img src="<%= movie.getPoster() %>" alt="<%= movie.getName() %> Poster">
+                        <div class="movie-details">
+                            <h3><b>Name:      </b> <%= movie.getName() %></h3>
+                            <p><b>Director:   </b> <%= movie.getDirector() %></p>
+                            <p><b>Cast:       </b> <%= movie.getCasts() %></p>
+                            <p><b>Release Date:</b> <%= movie.getReleaseDate() %></p>
+                            <p><b>Duration:   </b> <%= movie.getDuration() %></p>
+                            <p><b>Description:</b> <%= movie.getDescription() %></p>
+                        </div>
+                        <%
+                            com.otu.mtbs.model.User user = (com.otu.mtbs.model.User) session.getAttribute("loggedUser");
+                        %>
+                        <%
+                            if (user != null) {
+                        %>
+                        <a href="purchase.jsp?movieId=<%= Integer.toString(movie.getId())%>">Purchase</a>
+                        <%
+                            } else {
+                        %>
+                        <p style="color: red;"> <a href="User/indxLoginError.jsp">Login</a></p>
+                        <%
+                            }
+                        %>
+                    </li>
+                    <%
+                        }
+                    %>
+                </ul>
+            </div>
+        </main>
+    </body>
 </html>

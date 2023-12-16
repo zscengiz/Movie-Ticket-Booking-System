@@ -5,9 +5,19 @@
 <%@ page import="com.otu.mtbs.session.dao.SessionDao" %>
 <%@ page import="com.otu.mtbs.purchase.dao.PurchaseDao" %>
 <%@ page import="com.otu.mtbs.movie.dao.MovieDao" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<jsp:useBean id="purchaseBean" class="com.otu.mtbs.model.PurchaseBean" scope="request" />
+<%
+    com.otu.mtbs.model.User userr = (com.otu.mtbs.model.User)session.getAttribute("loggedUser");
+    if (userr == null) {
+        response.sendRedirect("../User/indxLoginError.jsp");
+        return;
+    }
+%>
 <html>
     <head>
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/User/Navbar/navbar.css">
+
         <meta charset="UTF-8">
         <title>Purchase Tickets</title>
         <style>
@@ -16,7 +26,8 @@
                 background-color: #f4f4f4;
                 margin: 20px;
                 display: flex;
-                justify-content: space-between;
+                justify-content: center;
+                align-items: center;
             }
 
             form {
@@ -26,7 +37,8 @@
                 box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
                 width: 400px;
                 height: 200px;
-                margin-right: 20px;
+                margin-top: 30px;
+
             }
 
             #movieDetails {
@@ -79,7 +91,6 @@
             }
         </style>
         <script>
-
             function hideSuccessMessage() {
                 var successMessage = document.getElementById('successMessage');
                 var errorMessage = document.getElementById('errorMessage');
@@ -87,25 +98,26 @@
                     setTimeout(function () {
                         successMessage.style.opacity = '0';
                     }, 1200);
-                }else if(errorMessage){
-                     setTimeout(function () {
+                } else if (errorMessage) {
+                    setTimeout(function () {
                         errorMessage.style.opacity = '0';
                     }, 1200);
                 }
             }
             window.onload = hideSuccessMessage;
-
-
         </script>
     </head>
     <body>
-                <%@ include file="../User/Navbar/navbar.jsp" %>
+        <%@ include file="../User/Navbar/navbar.jsp" %>
 
+    <center>
         <form method="post" action="/Movie-Ticket-Booking-System/CreatePurchaseServlet">
             <label for="sessionId">Select Movie Session:</label>
             <select name="sessionId" id="sessionId">
                 <% 
                     String movieId = request.getParameter("movieId"); 
+                       session.setAttribute("movieId", movieId);
+
 
                     if (movieId != null && !movieId.isEmpty()) {
                         List<Session> sessions = SessionDao.getAllSessionsById(Integer.parseInt(movieId));
@@ -128,50 +140,25 @@
             <br>
 
             <button type="submit">Purchase Ticket</button>
-
-
         </form>
+    </center>
+    <% 
+        String successMessage = (String) request.getAttribute("successMessage");
+        if (successMessage != null) {
+    %>
+    <div id="successMessage" class="success-message">
+        <%= successMessage %>
+    </div>
+    <% } %>
 
-        <% 
-            String successMessage = (String) request.getAttribute("successMessage");
-            if (successMessage != null) {
-        %>
-        <div id="successMessage" class="success-message">
-            <%= successMessage %>
-        </div>
-        <% } %>
-        
-        <% 
-            String errorMessage = (String) request.getAttribute("errorMessage");
-            if (errorMessage != null) {
-        %>
-        <div id="errorMessage" class="error-message">
-            <%= errorMessage %>
-        </div>
-        <% } %>
-        
-<!-- bu aşağısı kaldırılacak satın aldığı zaman satın alındı denilecek ve ve tekrar ana sayfaya geçecek  profile bilgilerinde ne aldğı gözükecek.-->
-        <div id="movieDetails">
-            <h2>Selected Movie Details</h2>
-            <%
-                int selectedSessionId = 0;
-                String sessionIdParam = request.getParameter("sessionId");
-                if (sessionIdParam != null && !sessionIdParam.isEmpty()) {
-                    selectedSessionId = Integer.parseInt(sessionIdParam);
-                }
-                Movie selectedMovie = new MovieDao().getMovieBySessionId(selectedSessionId);
-            %>
+    <% 
+        String errorMessage = (String) request.getAttribute("errorMessage");
+        if (errorMessage != null) {
+    %>
+    <div id="errorMessage" class="error-message">
+        <%= errorMessage %>
+    </div>
+    <% } %>
 
-            <% if (selectedMovie != null) { %>
-            <p><strong>Name:</strong> <%= selectedMovie.getName() %></p>
-            <p><strong>Director:</strong> <%= selectedMovie.getDirector() %></p>
-            <p><strong>Release Date:</strong> <%= selectedMovie.getReleaseDate() %></p>
-            <p><strong>Casts:</strong> <%= selectedMovie.getCasts() %></p>
-            <p><strong>Description:</strong> <%= selectedMovie.getDescription() %></p>
-            <p><strong>Duration:</strong> <%= selectedMovie.getDuration() %></p>        
-            <% } else { %>
-            <!--  update  -->
-            <% } %>
-        </div>
-    </body>
+</body>
 </html>

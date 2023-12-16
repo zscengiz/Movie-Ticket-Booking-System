@@ -2,10 +2,17 @@
 <%@ page import="com.otu.mtbs.model.Movie" %>
 <%@ page import="com.otu.mtbs.movie.dao.MovieDao" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+    com.otu.mtbs.model.User user = (com.otu.mtbs.model.User)session.getAttribute("loggedAdmin");
+    if (user == null) {
+        response.sendRedirect("../User/adminLoginError.jsp");
+        return;
+    }
+%>
 <!DOCTYPE html>
 <html>
     <head>
-        
+
         <title>Add Movie</title>
         <style>
             body {
@@ -121,29 +128,29 @@
                     <div id="message"></div>
                     <div class="form-group">
                         <label for="name">Movie Name:</label>
-                        <input type="text" id="name" name="name" required maxlength="200">
+                        <input type="text" id="name" name="name" required maxlength="100">
 
                         <label for="director">Director:</label>
-                        <input type="text" id="director" name="director" required maxlength="200">
+                        <input type="text" id="director" name="director" required maxlength="100">
 
                         <label for="casts">Cast:</label>
-                        <input type="text" id="casts" name="casts" required maxlength="200">
+                        <input type="text" id="casts" name="casts" required maxlength="100">
 
                         <div id="uploadImage">
                             <label for="poster">Poster:</label>
-                            <input type="text" name="posterUrl" required>
+                            <input type="text" id="poster" name="posterUrl" required>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="releaseDate">Release Date:</label>
-                        <input type="datetime-local" id="releaseDate" name="releaseDate" required maxlength="200">
+                        <input type="datetime-local" id="releaseDate" name="releaseDate" required maxlength="100">
 
                         <label for="duration">Duration:</label>
-                        <input type="number" id="duration" name="duration" required maxlength="200">
+                        <input type="number" id="duration" name="duration" required maxlength="100">
 
                         <label for="description">Description:</label>
-                        <textarea type="text" id="description" name="description" rows="4" required maxlength="200"></textarea>
+                        <textarea type="text" id="description" name="description" rows="4" required maxlength="150"></textarea>
                     </div>
 
                     <button type="submit">Add Movie</button>
@@ -168,6 +175,29 @@
                     } else if (urlParams.has('error')) {
                         showMessage('Error adding movie. Please try again.', 'error');
                     }
+
+
+                    document.addEventListener('DOMContentLoaded', function () {
+                        var form = document.querySelector('form');
+                        form.addEventListener('submit', function (event) {
+                            // Form gönderilmeden önce kontrol yapalım
+                            var posterUrlInput = document.getElementById('poster');
+                            var posterUrl = posterUrlInput.value.trim();
+
+                            if (!isValidUrl(posterUrl)) {
+                                // Eğer HTTP veya HTTPS ile başlamıyorsa formu göndermeyi engelle
+                                event.preventDefault();
+
+                                // Hata mesajını göster
+                                showMessage('Poster URL must start with "http://" or "https://".', 'error');
+                            }
+                        });
+
+                        function isValidUrl(url) {
+                            return url.startsWith('http://') || url.startsWith('https://');
+                        }
+                    });
+
                 </script>
             </center>
         </main>

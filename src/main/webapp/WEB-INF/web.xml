@@ -68,6 +68,10 @@
         <servlet-name>UserChangePasswordServlet</servlet-name>
         <servlet-class>com.otu.mtbs.user.servlet.UserChangePasswordServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UpdatePasswordServlet</servlet-name>
+        <servlet-class>com.otu.mtbs.user.servlet.UpdatePasswordServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AdminLoginServlet</servlet-name>
         <url-pattern>/AdminLoginServlet</url-pattern>
@@ -131,6 +135,10 @@
     <servlet-mapping>
         <servlet-name>UserChangePasswordServlet</servlet-name>
         <url-pattern>/UserChangePasswordServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdatePasswordServlet</servlet-name>
+        <url-pattern>/UpdatePasswordServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

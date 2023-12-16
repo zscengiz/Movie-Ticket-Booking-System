@@ -2,6 +2,13 @@
 <%@ page import="com.otu.mtbs.model.Movie" %>
 <%@ page import="com.otu.mtbs.movie.dao.MovieDao" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+    com.otu.mtbs.model.User user = (com.otu.mtbs.model.User)session.getAttribute("loggedAdmin");
+    if (user == null) {
+        response.sendRedirect("../User/adminLoginError.jsp");
+        return;
+    }
+%>
 <html>
     <head>
         <title>Admin Movies</title>

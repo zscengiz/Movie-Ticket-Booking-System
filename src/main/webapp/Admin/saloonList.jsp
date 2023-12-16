@@ -2,6 +2,13 @@
 <%@ page import="com.otu.mtbs.model.Saloon" %>
 <%@ page import="com.otu.mtbs.saloon.dao.SaloonDao" %>
 <%@ page contentType="text/html" pageEncoding="UTF-8" %>
+<%
+    com.otu.mtbs.model.User user = (com.otu.mtbs.model.User)session.getAttribute("loggedAdmin");
+    if (user == null) {
+        response.sendRedirect("../User/adminLoginError.jsp");
+        return;
+    }
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>

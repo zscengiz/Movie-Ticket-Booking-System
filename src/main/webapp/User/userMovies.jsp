@@ -1,9 +1,18 @@
 <%@ page import="java.util.List" %>
 <%@ page import="com.otu.mtbs.model.Movie" %>
 <%@ page import="com.otu.mtbs.movie.dao.MovieDao" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+    com.otu.mtbs.model.User userr = (com.otu.mtbs.model.User)session.getAttribute("loggedUser");
+    if (userr == null) {
+        response.sendRedirect("../User/indxLoginError.jsp");
+        return;
+    }
+%>
 <html>
     <head>
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/User/Navbar/navbar.css">
+
         <title>User Movies</title>
         <style>
             body {
@@ -67,7 +76,7 @@
                         List<Movie> moviesList = new MovieDao().getAllMovies();
                         for (Movie movie : moviesList) {
                     %>
-                     <li class="movie">
+                    <li class="movie">
                         <img src="<%= movie.getPoster() %>" alt="<%= movie.getName() %> Poster">
                         <div class="movie-details">
                             <h3><b>Name:      </b> <%= movie.getName() %></h3>

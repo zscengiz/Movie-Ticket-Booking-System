@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -7,6 +7,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>User Login</title>
         <link rel="stylesheet" href="${pageContext.request.contextPath}/User/css/style.css">
+            <link rel="stylesheet" href="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.css">
+
 
     </head>
     <body>
@@ -19,13 +21,13 @@
                         <span class="icon">
                             <ion-icon name="mail"></ion-icon>
                         </span>
-                        <input type="email" id="email" name="email" placeholder="Email" required>
+                        <input type="email" id="email" name="email" placeholder="Email" maxlength="40" required>
                     </div>
                     <div class="input-box">
                         <span class="icon">
                             <ion-icon name="lock-closed"></ion-icon>
                         </span>
-                        <input type="password" id="password" name="password" placeholder="Password" required>
+                        <input type="password" id="password" name="password" placeholder="Password" maxlength="40" required>
                     </div>
 
                     <button type="submit">Login</button>

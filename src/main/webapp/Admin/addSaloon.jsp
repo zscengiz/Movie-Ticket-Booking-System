@@ -1,4 +1,11 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+    com.otu.mtbs.model.User user = (com.otu.mtbs.model.User)session.getAttribute("loggedAdmin");
+    if (user == null) {
+        response.sendRedirect("../User/adminLoginError.jsp");
+        return;
+    }
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -134,7 +141,7 @@
             if (urlParams.has('success')) {
                 showMessage('Saloon added successfully!', 'success');
             } else if (urlParams.has('error')) {
-                showMessage('Error adding saloon. Please try again.', 'error');
+                showMessage('There is a saloon with the same name.', 'error');
             }
         </script>
     </center>

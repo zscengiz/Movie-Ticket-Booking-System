@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -9,7 +9,6 @@
         <link rel="stylesheet" href="${pageContext.request.contextPath}/User/css/style.css">
     </head>
     <body>
-    <%@ include file="../User/Navbar/navbar.jsp" %>
 
         <div class="wrapper">
             <h2 class="text-right">Welcome</h2>
@@ -22,27 +21,33 @@
                             <span class="icon">
                                 <ion-icon name="person"></ion-icon>
                             </span>
-                            <input type="text" id="name" name="name" placeholder="Name" required>
+                            <input type="text" id="name" name="name" placeholder="Name" maxlength="40" required>
 
                         </div>
                         <div class="input-box">
                             <span class="icon">
                                 <ion-icon name="mail"></ion-icon>
                             </span>
-                            <input type="email" id="email" name="email" placeholder="Email" required>
+                            <input type="email" id="email" name="email" pattern="^[^\s]+$" placeholder="Email" maxlength="40"  required>
 
                         </div>
                         <div class="input-box">
                             <span class="icon">
                                 <ion-icon name="lock-closed"></ion-icon>
                             </span>
-                            <input type="password" id="password" name="password" placeholder="Password" required>
+                            <input type="password" id="password" name="password" placeholder="Password" maxlength="40" required>
 
                         </div>
-                        <% String errorMessage = (String)request.getAttribute("loginError"); %>
-                        <% if (errorMessage != null) { %>
-                        <p style="color: red; margin-top: 10px;"><%= errorMessage %></p>
+                        <% String emailError = (String)request.getAttribute("emailError"); %>
+                        <% if (emailError != null) { %>
+                        <p style="color: red; margin-top: 10px;"><%= emailError %></p>
                         <% } %>
+
+                        <% String loginError = (String)request.getAttribute("loginError"); %>
+                        <% if (loginError != null) { %>
+                        <p style="color: red; margin-top: 10px;"><%= loginError %></p>
+                        <% } %>
+
 
                         <button type="submit">Register</button>
                         <div class="sign-link">

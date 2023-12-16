@@ -18,13 +18,13 @@
                         <span class="icon">
                             <ion-icon name="mail"></ion-icon>
                         </span>
-                        <input type="email" id="email" name="email" placeholder="Email" required>
+                        <input type="email" id="email" name="email" placeholder="Email" maxlength="100" required>
                     </div>
                     <div class="input-box">
                         <span class="icon">
                             <ion-icon name="lock-closed"></ion-icon>
                         </span>
-                        <input type="password" id="password" name="password" placeholder="Password" required>
+                        <input type="password" id="password" name="password" placeholder="Password" maxlength="100" required>
                     </div>
                     <button type="submit">Login</button>
                     <% String errorMessage = (String)request.getAttribute("loginError"); %>
