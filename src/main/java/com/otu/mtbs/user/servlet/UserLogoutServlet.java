@@ -6,6 +6,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -16,27 +17,25 @@ public class UserLogoutServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try {
-
-            // Invalidate the session
             HttpSession session = request.getSession(false);
             if (session != null) {
                 session.invalidate();
             }
 
-            // Remove the user cookie
             Cookie[] cookies = request.getCookies();
             if (cookies != null) {
                 for (Cookie cookie : cookies) {
-                    if (cookie.getName().equals("user")) {
-                        cookie.setMaxAge(0); // Set the cookie's expiration time to 0 for removal
+                    if ("user".equals(cookie.getName())) { // Çerez adını kontrol et
+                        cookie.setMaxAge(0);
+                        cookie.setSecure(true);
+                        cookie.setHttpOnly(true);
                         response.addCookie(cookie);
                         break;
                     }
                 }
             }
 
-            // Redirect to logout success page
-            response.sendRedirect("/Movie-Ticket-Booking-System/User/logoutSuccess.jsp");
+            response.sendRedirect(request.getContextPath() + "/User/logoutSuccess.jsp");
 
         } catch (IOException ex) {
             Logger.getLogger(UserLogoutServlet.class.getName()).log(Level.SEVERE, null, ex);
