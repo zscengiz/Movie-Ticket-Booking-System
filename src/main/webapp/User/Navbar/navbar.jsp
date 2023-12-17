@@ -15,7 +15,7 @@
             <a href="#" class="logo">MTBS</a>
             <nav>
               <!--  <a href="/Movie-Ticket-Booking-System/User/Navbar/navbar.jsp" class="active">Home</a> api yap?l?rsa konulacak-->
-                <a href="/Movie-Ticket-Booking-System/User/userMovies.jsp">Filmler</a>
+                <a href="/Movie-Ticket-Booking-System/User/userMovies.jsp">Movies</a>
                 <div class="dropdown">
                     <a href="#" class="login">Login</a>
                     <div class="dropdown-content">

@@ -22,8 +22,6 @@
                         <a href="/Movie-Ticket-Booking-System/User/login.jsp">User Login</a>
                     </div>
                 </div>   
-
-                <a href="#contact">Contact</a>
             </nav>
         </header>
 
