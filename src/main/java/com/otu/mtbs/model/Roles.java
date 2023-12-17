@@ -5,7 +5,7 @@
 package com.otu.mtbs.model;
 
 public class Roles {
-    
+
     private Integer id;
     private String role;
 
@@ -32,6 +32,5 @@ public class Roles {
     public void setRole(String role) {
         this.role = role;
     }
-    
- 
+
 }

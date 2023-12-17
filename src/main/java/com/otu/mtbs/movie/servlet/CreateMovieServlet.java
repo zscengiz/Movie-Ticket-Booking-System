@@ -25,7 +25,7 @@ public class CreateMovieServlet extends HttpServlet {
         String description = request.getParameter("description");
         String poster = request.getParameter("posterUrl");
         String duration = request.getParameter("duration");
-        
+
         if (!isValidUrl(poster)) {
             response.sendRedirect("Admin/addMovie.jsp?error=invalidUrl");
             return;
@@ -54,7 +54,8 @@ public class CreateMovieServlet extends HttpServlet {
             response.sendRedirect("Admin/addMovie.jsp?error=true");
         }
     }
-        private boolean isValidUrl(String url) {
+
+    private boolean isValidUrl(String url) {
         return url != null && (url.startsWith("https://") || url.startsWith("http://"));
     }
 }

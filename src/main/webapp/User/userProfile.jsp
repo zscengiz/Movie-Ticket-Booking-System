@@ -5,7 +5,6 @@
 <%@ page import="com.otu.mtbs.saloon.dao.SaloonDao" %>
 <%@ page import="com.otu.mtbs.session.dao.SessionDao" %>
 <%@ page import="com.otu.mtbs.model.Saloon" %>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
     com.otu.mtbs.model.User userr = (com.otu.mtbs.model.User)session.getAttribute("loggedUser");

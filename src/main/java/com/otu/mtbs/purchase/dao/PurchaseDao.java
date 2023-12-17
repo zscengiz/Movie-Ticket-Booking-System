@@ -2,7 +2,6 @@ package com.otu.mtbs.purchase.dao;
 
 import com.otu.mtbs.connection.ConnectionDB;
 import com.otu.mtbs.model.Purchase;
-import com.otu.mtbs.model.PurchaseBean;
 import com.otu.mtbs.model.Session;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -13,7 +12,7 @@ import java.util.List;
 
 public class PurchaseDao {
 
-    public boolean savePurchase(PurchaseBean purchase) throws ClassNotFoundException {
+    public boolean savePurchase(Purchase purchase) throws ClassNotFoundException {
         boolean isSuccess = false;
 
         try {

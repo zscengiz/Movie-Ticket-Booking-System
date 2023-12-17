@@ -5,7 +5,7 @@
 package com.otu.mtbs.model;
 
 public class User {
-    
+
     private Integer id;
     private String email;
     private String name;
@@ -15,7 +15,7 @@ public class User {
     public User() {
     }
 
-    public User(Integer id,String email, String name, String password, Integer role) {
+    public User(Integer id, String email, String name, String password, Integer role) {
         this.id = id;
         this.email = email;
         this.name = name;
@@ -62,8 +62,5 @@ public class User {
     public void setRole(Integer role) {
         this.role = role;
     }
-       
-    
+
 }
-
-

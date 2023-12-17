@@ -1,7 +1,7 @@
 package com.otu.mtbs.purchase.servlet;
 
 import com.otu.mtbs.connection.ConnectionDB;
-import com.otu.mtbs.model.PurchaseBean;
+import com.otu.mtbs.model.Purchase;
 import com.otu.mtbs.model.User;
 import com.otu.mtbs.purchase.dao.PurchaseDao;
 import com.otu.mtbs.movie.dao.MovieDao;
@@ -35,14 +35,13 @@ public class CreatePurchaseServlet extends HttpServlet {
                 request.setAttribute("errorMessage", "Seat number already purchased.");
                 request.getRequestDispatcher("User/purchaseError.jsp").forward(request, response);
                 return; // Return to avoid further processing
-            } else if(seatNumber > capacity || seatNumber <= 0){
+            } else if (seatNumber > capacity || seatNumber <= 0) {
                 request.setAttribute("errorMessage", "There is no seat number like this.");
                 request.getRequestDispatcher("User/purchaseError.jsp").forward(request, response);
                 return; // Return to avoid further processing
             }
-          
 
-            PurchaseBean purchase = new PurchaseBean(null, userId, sessionId, movieName, 1, seatNumber);
+            Purchase purchase = new Purchase(null, userId, sessionId, movieName, 1, seatNumber);
 
             isSuccess = new PurchaseDao().savePurchase(purchase);
 

@@ -18,7 +18,7 @@
                 <p class="fs-3"> <span class="text-danger">Opps!</span> Page not found.</p>
                 <p class="lead">
                     The page you're looking for doesn't exist.
-                  </p>
+                </p>
                 <a href="/Movie-Ticket-Booking-System/index.jsp" class="btn btn-primary">Go Home</a>
             </div>
         </div>

@@ -5,7 +5,7 @@
 package com.otu.mtbs.model;
 
 public class Movie {
-    
+
     private Integer id;
     private String name;
     private String director;
@@ -16,9 +16,9 @@ public class Movie {
     private String duration;
 
     public Movie() {
-        
+
     }
-     
+
     public Movie(Integer id, String name, String director, String releaseDate, String casts, String description, String poster, String duration) {
         this.id = id;
         this.name = name;
@@ -92,6 +92,6 @@ public class Movie {
 
     public void setDuration(String duration) {
         this.duration = duration;
-    }   
-    
+    }
+
 }

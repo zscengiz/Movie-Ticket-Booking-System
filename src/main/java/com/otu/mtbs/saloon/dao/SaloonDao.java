@@ -31,7 +31,7 @@ public class SaloonDao {
         }
     }
 
-     public static boolean addSaloon(Saloon saloon) {
+    public static boolean addSaloon(Saloon saloon) {
         boolean isSuccess = false;
 
         try {
@@ -76,7 +76,6 @@ public class SaloonDao {
 
         return false;
     }
-
 
     public static List<Saloon> getAllSaloons() {
         List<Saloon> saloons = new ArrayList<>();

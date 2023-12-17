@@ -38,8 +38,8 @@
                 <div class="dropdown">
                     <a href="#" class="login">Profile</a>
                     <div class="dropdown-content">
-                <a href="/Movie-Ticket-Booking-System/Admin/adminProfile.jsp">Profile</a>
-                <a href="/Movie-Ticket-Booking-System/User/logout.jsp" class="login">Logout</a>
+                        <a href="/Movie-Ticket-Booking-System/Admin/adminProfile.jsp">Profile</a>
+                        <a href="/Movie-Ticket-Booking-System/User/logout.jsp" class="login">Logout</a>
 
 
                     </div>

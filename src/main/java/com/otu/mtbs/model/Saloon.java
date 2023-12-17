@@ -8,7 +8,8 @@ package com.otu.mtbs.model;
  *
  * @author zcengiz
  */
-public class Saloon {    
+public class Saloon {
+
     private Integer id;
     private String name;
     private String capacity;
@@ -45,8 +46,5 @@ public class Saloon {
     public void setCapacity(String capacity) {
         this.capacity = capacity;
     }
-    
-    
 
-    
 }

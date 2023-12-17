@@ -24,11 +24,10 @@ public class DeleteMovieDao {
 
             isSuccess = rowsAffected == 1;
 
-
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
         return isSuccess;
     }
-    
+
 }

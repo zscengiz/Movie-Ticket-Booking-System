@@ -6,7 +6,7 @@
 <%@ page import="com.otu.mtbs.purchase.dao.PurchaseDao" %>
 <%@ page import="com.otu.mtbs.movie.dao.MovieDao" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<jsp:useBean id="purchaseBean" class="com.otu.mtbs.model.PurchaseBean" scope="request" />
+<jsp:useBean id="purchase" class="com.otu.mtbs.model.Purchase" scope="request" />
 <%
     com.otu.mtbs.model.User userr = (com.otu.mtbs.model.User)session.getAttribute("loggedUser");
     if (userr == null) {

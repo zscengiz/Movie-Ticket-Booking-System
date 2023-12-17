@@ -9,6 +9,7 @@
         return;
     }
 %>
+<!DOCTYPE html>
 <html>
     <head>
         <title>Admin Movies</title>

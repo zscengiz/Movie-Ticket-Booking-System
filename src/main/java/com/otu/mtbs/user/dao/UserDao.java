@@ -4,7 +4,7 @@
  */
 package com.otu.mtbs.user.dao;
 
-import com.otu.mtbs.model.PurchaseBean;
+import com.otu.mtbs.model.Purchase;
 import com.otu.mtbs.model.User;
 import jakarta.servlet.http.HttpSession;
 import java.sql.*;
