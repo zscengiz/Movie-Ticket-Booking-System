@@ -35,7 +35,6 @@ public class UserLoginServlet extends HttpServlet {
                 HttpSession session = request.getSession();
                 session.setAttribute("loggedUser", user);
 
-                // Set a cookie with user information
                 Cookie userCookie = new Cookie("user", user.getId() + ":" + user.getEmail());
                 userCookie.setMaxAge(3600);
                 response.addCookie(userCookie);

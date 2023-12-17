@@ -28,7 +28,7 @@
                             <span class="icon">
                                 <ion-icon name="mail"></ion-icon>
                             </span>
-                            <input type="email" id="email" name="email" pattern="^[^\s]+$" placeholder="Email" maxlength="40"  required>
+                            <input type="email" id="email" name="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" placeholder="Email" maxlength="40"  required>
 
                         </div>
                         <div class="input-box">

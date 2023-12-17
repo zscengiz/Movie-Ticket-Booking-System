@@ -25,7 +25,7 @@ public class UserLogoutServlet extends HttpServlet {
             Cookie[] cookies = request.getCookies();
             if (cookies != null) {
                 for (Cookie cookie : cookies) {
-                    if ("user".equals(cookie.getName())) { // Çerez adını kontrol et
+                    if ("user".equals(cookie.getName())) { 
                         cookie.setMaxAge(0);
                         cookie.setSecure(true);
                         cookie.setHttpOnly(true);
