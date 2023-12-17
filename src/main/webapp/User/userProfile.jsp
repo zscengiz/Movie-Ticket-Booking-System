@@ -101,6 +101,10 @@
                 padding: 0.75rem 1.25rem;
                 margin-bottom: 1rem;
             }
+                        main {
+                margin-top: 80px;
+            }
+
         </style>
     </head>
     <body>  
@@ -108,6 +112,7 @@
         <br>
         <br>
         <br>
+        <main>
         <div class="container">
             <div class="row gutters">
                 <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
@@ -179,6 +184,7 @@
                     </form>
                 </div>
                 <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+                    <div><br></div>
                     <div class="card h-100">
                         <div class="card-body">
                             <div class="row gutters">
@@ -221,5 +227,6 @@
                 </div>
             </div>
         </div>
+        </main>
     </body>
 </html>
