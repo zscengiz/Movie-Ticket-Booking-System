@@ -45,8 +45,10 @@ public class RegisterServlet extends HttpServlet {
             if (isSuccess) {
                 HttpSession session = request.getSession();
                 request.setAttribute("successMessage", "Successful registration, you are directed to the login page.");
-                request.getRequestDispatcher("User/registrationSuccess.jsp").forward(request, response);
-
+                out.println("<script>");
+                out.println("alert('successful registration!');");
+                out.println("window.location.href = 'User/login.jsp';");
+                out.println("</script>");
             } else {
                 request.setAttribute("loginError", "Invalid email. Please try again.");
 

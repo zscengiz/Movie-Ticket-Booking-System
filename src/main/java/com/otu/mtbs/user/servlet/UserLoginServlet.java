@@ -41,7 +41,10 @@ public class UserLoginServlet extends HttpServlet {
                 response.addCookie(userCookie);
 
                 request.setAttribute("successMessage", "Success Message: Successful login.");
-                request.getRequestDispatcher("User/loginSuccess.jsp").forward(request, response);
+                out.println("<script>");
+                out.println("alert('Successful login!');");
+                out.println("window.location.href = 'User/userMovies.jsp';");
+                out.println("</script>");
             } else {
                 request.setAttribute("loginError", "Invalid email or password. Please try again.");
                 RequestDispatcher rd = request.getRequestDispatcher("User/login.jsp");
